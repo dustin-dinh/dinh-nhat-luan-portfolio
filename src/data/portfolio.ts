@@ -7,6 +7,9 @@ export interface ProjectContent {
   description: string;
   githubUrl: string;
   demoUrl: string;
+  statusLabel: string;
+  imagePath: string;
+  imageAlt: string;
   tags: string[];
   keyHighlights: string[];
   allDetails: string[];
@@ -23,7 +26,6 @@ export const personalInfo = {
   email: "nhatluan.dinh.2901@gmail.com",
   github: "https://github.com/dustin-dinh",
   facebook: "https://www.facebook.com/immayoungbigbois.raw",
-  zaloNumber: "0388744779",
   zaloUrl: "https://zalo.me/0388744779",
   linkedinUrl: "", // Kept empty when unverified
   resumePath: "/resume.pdf"
@@ -31,9 +33,11 @@ export const personalInfo = {
 
 export const portfolioContent = {
   en: {
+    lastUpdated: "Last updated: July 2026",
     navigation: {
       brand: "Dinh Nhat Luan",
       about: "About",
+      currently: "Currently",
       projects: "Projects",
       skills: "Skills",
       education: "Education",
@@ -66,6 +70,15 @@ export const portfolioContent = {
       collaborationSubtitle: "Ready for internship roles",
       collaborationDesc: "Eager to learn from experienced engineers, accept feedback, and contribute effectively to team projects."
     },
+    currently: {
+      sectionTag: "Focus",
+      title: "Currently",
+      items: [
+        "Improving the deployment and user experience of the Vietnamese Legal Search project",
+        "Learning more about practical LLM APIs, retrieval systems, and agent workflows",
+        "Looking for internship opportunities in AI, Data, or Backend Engineering"
+      ]
+    },
     projects: {
       sectionTag: "Portfolio Highlights",
       title: "Featured Engineering Projects",
@@ -76,7 +89,7 @@ export const portfolioContent = {
       fullSpecsTitle: "Full Technical Specifications",
       viewGithub: "View GitHub",
       liveDemo: "Live Demo",
-      demoComingSoon: "Demo coming soon",
+      demoComingSoon: "Demo in progress",
       items: [
         {
           id: "vietnamese-legal-search",
@@ -85,6 +98,9 @@ export const portfolioContent = {
           description: "A specialized search system helping users find relevant Vietnamese labor-law provisions using natural language queries, including accentless text and common abbreviations.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
           demoUrl: "",
+          statusLabel: "Source available",
+          imagePath: "/projects/legal-search.webp",
+          imageAlt: "Preview of Vietnamese Legal Semantic Search Engine interface",
           tags: [
             "Python",
             "FastAPI",
@@ -124,6 +140,9 @@ export const portfolioContent = {
           description: "A full-featured e-commerce platform built with a React frontend and Laravel REST API, handling customer shopping workflows, admin management, and checkout.",
           githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
           demoUrl: "",
+          statusLabel: "Source available",
+          imagePath: "/projects/furniture-shop.webp",
+          imageAlt: "Preview of Furniture Shop Web Application storefront",
           tags: [
             "React 19",
             "Laravel 12",
@@ -246,14 +265,12 @@ export const portfolioContent = {
       sectionTag: "Get In Touch",
       title: "Let's Connect & Work Together",
       description: "I am currently open to AI, Data, and Backend Internship opportunities. Whether you have a project idea, a job opportunity, or just want to chat about software engineering, I'd love to hear from you!",
-      emailLabel: "Email Address",
-      githubLabel: "GitHub Profile",
-      facebookLabel: "Facebook",
-      zaloLabel: "Zalo Contact",
-      resumeLabel: "Curriculum Vitae",
-      downloadResume: "Download PDF Resume",
-      copyZaloNumber: "Copy Phone Number",
-      copiedZaloNumber: "Copied!",
+      sendEmail: "Send Email",
+      viewGithub: "View GitHub",
+      visitFacebook: "Visit Facebook",
+      chatZalo: "Chat on Zalo",
+      downloadResume: "Download Resume",
+      emailSubject: "Internship Opportunity for Dinh Nhat Luan",
       closingMsg: "I am always open to discussing internship roles, technology projects, or ideas we can build together.",
       facebookAria: "Visit Dinh Nhat Luan on Facebook",
       zaloAria: "Contact Dinh Nhat Luan on Zalo"
@@ -265,9 +282,11 @@ export const portfolioContent = {
   },
 
   vi: {
+    lastUpdated: "Cập nhật lần cuối: Tháng 7/2026",
     navigation: {
       brand: "Đinh Nhật Luân",
       about: "Giới thiệu",
+      currently: "Hiện tại",
       projects: "Dự án",
       skills: "Kỹ năng",
       education: "Học vấn",
@@ -300,6 +319,15 @@ export const portfolioContent = {
       collaborationSubtitle: "Sẵn sàng cho vị trí thực tập",
       collaborationDesc: "Luôn sẵn sàng học hỏi từ các kỹ sư giàu kinh nghiệm, tiếp thu phản hồi và đóng góp hiệu quả cho các dự án chung."
     },
+    currently: {
+      sectionTag: "Định hướng",
+      title: "Hiện tại",
+      items: [
+        "Tiếp tục tối ưu khả năng triển khai và trải nghiệm người dùng cho dự án tìm kiếm pháp luật Việt Nam",
+        "Tìm hiểu thêm về LLM API, hệ thống truy xuất thông tin và agent workflow",
+        "Tìm kiếm cơ hội thực tập về AI, Dữ liệu hoặc Backend"
+      ]
+    },
     projects: {
       sectionTag: "Dự án tiêu biểu",
       title: "Dự án nổi bật",
@@ -310,7 +338,7 @@ export const portfolioContent = {
       fullSpecsTitle: "Thông số kỹ thuật chi tiết",
       viewGithub: "Xem GitHub",
       liveDemo: "Bản demo",
-      demoComingSoon: "Bản demo sắp ra mắt",
+      demoComingSoon: "Đang hoàn thiện demo",
       items: [
         {
           id: "vietnamese-legal-search",
@@ -319,6 +347,9 @@ export const portfolioContent = {
           description: "Hệ thống truy xuất thông tin pháp lý giúp người dùng tra cứu các điều khoản Luật Lao động Việt Nam bằng câu hỏi tự nhiên, bao gồm văn bản không dấu và từ viết tắt.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
           demoUrl: "",
+          statusLabel: "Đã có mã nguồn",
+          imagePath: "/projects/legal-search.webp",
+          imageAlt: "Ảnh chụp giao diện Hệ thống tìm kiếm pháp luật Việt Nam",
           tags: [
             "Python",
             "FastAPI",
@@ -358,6 +389,9 @@ export const portfolioContent = {
           description: "Nền tảng thương mại điện tử nội thất với frontend React 19 tách biệt và Laravel 12 REST API, xử lý trọn vẹn quy trình mua hàng, quản trị và thanh toán.",
           githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
           demoUrl: "",
+          statusLabel: "Đã có mã nguồn",
+          imagePath: "/projects/furniture-shop.webp",
+          imageAlt: "Ảnh chụp giao diện Ứng dụng web cửa hàng nội thất",
           tags: [
             "React 19",
             "Laravel 12",
@@ -480,17 +514,15 @@ export const portfolioContent = {
       sectionTag: "Liên hệ",
       title: "Liên hệ với tôi",
       description: "Tôi hiện đang tìm kiếm các cơ hội thực tập về AI, Dữ liệu và Backend. Nếu bạn có ý tưởng dự án, cơ hội công việc hoặc muốn trao đổi về lập trình phần mềm, hãy liên hệ với tôi!",
-      emailLabel: "Địa chỉ Email",
-      githubLabel: "Hồ sơ GitHub",
-      facebookLabel: "Facebook",
-      zaloLabel: "Liên hệ Zalo",
-      resumeLabel: "Hồ sơ cá nhân",
-      downloadResume: "Tải CV PDF",
-      copyZaloNumber: "Sao chép số điện thoại",
-      copiedZaloNumber: "Đã sao chép!",
+      sendEmail: "Gửi email",
+      viewGithub: "Xem GitHub",
+      visitFacebook: "Xem Facebook",
+      chatZalo: "Nhắn tin qua Zalo",
+      downloadResume: "Tải CV",
+      emailSubject: "Cơ hội thực tập dành cho Đinh Nhật Luân",
       closingMsg: "Tôi luôn sẵn sàng trao đổi về cơ hội thực tập, dự án công nghệ hoặc những ý tưởng có thể cùng nhau phát triển.",
       facebookAria: "Ghé thăm Facebook của Đinh Nhật Luân",
-      zaloAria: "Liên hệ Zalo với Đinh Nhật Luân"
+      zaloAria: "Nhắn tin qua Zalo với Đinh Nhật Luân"
     },
     footer: {
       builtWith: "Xây dựng bằng Next.js, TypeScript & Tailwind CSS. Sẵn sàng cho Vercel.",

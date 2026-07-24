@@ -13,10 +13,14 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium">
         
         {/* Left: Copyright */}
-        <div className="flex items-center gap-1.5">
-          <span>© {new Date().getFullYear()} {personalInfo.name}. Built with</span>
-          <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
-          <span>in Ho Chi Minh City.</span>
+        <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+          <div className="flex items-center gap-1.5">
+            <span>© {new Date().getFullYear()} {personalInfo.name}. Built with</span>
+            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+            <span>in HCMC.</span>
+          </div>
+          <span className="hidden sm:inline text-slate-300">•</span>
+          <span className="text-slate-500">{t.lastUpdated}</span>
         </div>
 
         {/* Center: Social links */}

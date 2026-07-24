@@ -1,49 +1,37 @@
 # Dinh Nhat Luan — AI Engineer Intern Portfolio
 
-A clean, modern, lightweight, one-page portfolio website for **Dinh Nhat Luan** (AI Engineer Intern | Information Retrieval & Backend Developer). Built with Next.js App Router, TypeScript, Tailwind CSS, and Lucide React icons. Ready for one-click Vercel deployment.
+A clean, modern, lightweight, bilingual (EN | VI) portfolio website for **Dinh Nhat Luan** (AI Engineer Intern | Information Retrieval & Backend Developer). Built with Next.js App Router, TypeScript, Tailwind CSS, Lucide React icons, and Vercel Analytics & Speed Insights. Ready for zero-config Vercel deployment.
 
 ---
 
 ## 🚀 Features
 
-- **Single-page navigation**: Smooth scroll sections (`#hero`, `#about`, `#projects`, `#skills`, `#education`, `#contact`).
-- **Responsive design**: Pixel-perfect layout across mobile (320px, 375px), tablet (768px), and desktop (1024px, 1440px).
-- **Dark developer theme**: High-contrast slate/navy dark mode with cyan/blue accents and subtle grid overlays.
-- **Verified engineering details**: Structured project showcase with expandable full metrics drawers.
-- **Centralized data**: All content managed in `src/data/portfolio.ts` for zero maintenance friction.
-- **SEO optimized**: OpenGraph cards, meta descriptions, `robots.txt`, and `sitemap.xml` included.
+- **Bilingual Support (EN | VI)**: Full English and Vietnamese switching with `localStorage` persistence and zero hydration flashing.
+- **Single-page navigation**: Smooth scroll sections (`#hero`, `#about`, `#currently`, `#projects`, `#skills`, `#education`, `#contact`).
+- **Recruiter-Friendly Light Theme**: Clean off-white background with high-contrast slate typography, royal blue accents, and emerald status badges.
+- **Privacy-First Contacts**: Zalo privacy protection (no visible phone number), direct pre-filled email options, GitHub, and Facebook.
+- **Next.js Open Graph**: Dynamic social share card generation via `opengraph-image.tsx`.
+- **Vercel Analytics & Speed Insights**: Integrated performance and traffic telemetry.
 
 ---
 
-## 📂 Project Structure
+## 📸 Adding Real Project Screenshots
 
-```
-dinh-nhat-luan-portfolio/
-├── src/
-│   ├── app/
-│   │   ├── globals.css         # Global dark theme styles & background grid
-│   │   ├── layout.tsx          # Root layout & SEO metadata
-│   │   ├── page.tsx            # Single-page layout assembling all 8 sections
-│   │   ├── favicon.ico
-│   ├── components/
-│   │   ├── Navbar.tsx          # Sticky navigation bar with mobile drawer
-│   │   ├── Hero.tsx            # Hero section with CTA & availability badge
-│   │   ├── About.tsx           # Professional introduction & highlight cards
-│   │   ├── Projects.tsx        # Featured projects container
-│   │   ├── ProjectCard.tsx     # Project card with expandable details
-│   │   ├── Skills.tsx          # Categorized technical skill pills
-│   │   ├── Education.tsx       # Degree & relevant coursework
-│   │   ├── Contact.tsx         # Contact channels (Email, GitHub, LinkedIn, Resume)
-│   │   └── Footer.tsx          # Footer & back-to-top button
-│   └── data/
-│       └── portfolio.ts        # Centralized editable content store
-├── public/
-│   ├── resume.pdf              # Downloadable resume PDF
-│   ├── robots.txt              # Search engine crawling rules
-│   └── sitemap.xml             # XML Sitemap
-├── package.json
-└── README.md
-```
+To add real screenshot images for the featured projects:
+
+1. Create a `projects` directory inside `public/`:
+   ```bash
+   mkdir public/projects
+   ```
+2. Save your 16:9 aspect ratio WebP image files as:
+   ```text
+   public/projects/legal-search.webp
+   public/projects/furniture-shop.webp
+   ```
+3. **Recommended Specs**:
+   - Aspect ratio: 16:9 (e.g., 1280x720 or 1920x1080 pixels)
+   - Format: WebP or compressed JPG
+   - File size: Under 200 KB per image for optimal loading performance.
 
 ---
 
@@ -83,14 +71,14 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to view th
 
 This repository is pre-configured for zero-config deployment on Vercel:
 
-1. Push this repository to your GitHub account:
+1. Push this repository to GitHub:
    ```bash
    git add .
-   git commit -m "feat: build professional AI engineering portfolio"
-   git push origin main
+   git commit -m "feat: enhance portfolio content and project presentation"
+   git push -u origin main
    ```
 2. Log in to [Vercel](https://vercel.com).
-3. Click **Add New Project** and select **Import**.
+3. Select **Add New Project** -> **Import**.
 4. Choose the `dinh-nhat-luan-portfolio` repository.
 5. Keep default Next.js build settings (`npm run build`).
 6. Click **Deploy**.
