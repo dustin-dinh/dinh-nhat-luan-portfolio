@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     title: "Dinh Nhat Luan | AI Engineer Intern",
     description:
       "Portfolio of Dinh Nhat Luan, an Information Systems student focused on information retrieval, AI engineering, backend development, and data-driven applications.",
-    url: "https://dinhnhatluan-portfolio.vercel.app",
+    url: "https://dinh-nhat-luan-portfolio.vercel.app",
     siteName: "Dinh Nhat Luan Portfolio",
     locale: "en_US",
     type: "website",
@@ -63,9 +63,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} dark scroll-smooth h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#0b0f17] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
         {children}
       </body>
     </html>

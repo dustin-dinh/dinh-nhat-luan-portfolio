@@ -43,10 +43,10 @@ export const personalInfo: PersonalInfo = {
   location: "Ho Chi Minh City, Vietnam",
   email: "nhatluan.dinh.2901@gmail.com",
   github: "https://github.com/dustin-dinh",
-  linkedinUrl: "", // Unverified LinkedIn URL removed
-  availabilityLabel: "Open to AI, Data, and Backend Internship Opportunities",
-  bio: "I am an Information Systems student at the University of Information Technology with hands-on experience building Vietnamese information retrieval systems and data-driven web applications. I work mainly with Python, FastAPI, semantic search, retrieval evaluation, SQL, REST APIs, and reproducible testing.",
-  heroIntro: "Information Systems student specializing in high-accuracy Vietnamese information retrieval systems, AI engineering, and robust backend web applications.",
+  linkedinUrl: "", // Unverified LinkedIn URL kept empty
+  availabilityLabel: "Open to AI, Data & Backend Internship Opportunities",
+  bio: "I am an Information Systems student at the University of Information Technology (VNU-HCM) who loves building practical, data-driven software. My core interest lies in backend development, information retrieval, and applied AI. I enjoy turning complex challenges—like natural language legal queries or e-commerce logic—into clean, reproducible applications with well-structured APIs. I am eager to join a team as an intern to learn, collaborate, and contribute to real-world products.",
+  heroIntro: "Hi, I'm Luan! An Information Systems student passionate about information retrieval, backend web development, and applied AI.",
   resumePath: "/resume.pdf"
 };
 
@@ -69,7 +69,7 @@ export const projectsData: Project[] = [
     id: "vietnamese-legal-search",
     name: "Vietnamese Legal Semantic Search Engine",
     category: "Information Retrieval / NLP / Backend",
-    description: "A Vietnamese legal information retrieval system that helps users search labor-law provisions using natural Vietnamese questions, including accentless text and abbreviations.",
+    description: "A specialized search system helping users find relevant Vietnamese labor-law provisions using natural language queries, including accentless text and common abbreviations.",
     githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
     demoUrl: "", // Empty string when demo is unavailable
     tags: [
@@ -77,17 +77,16 @@ export const projectsData: Project[] = [
       "FastAPI",
       "Streamlit",
       "TF-IDF",
-      "E5",
+      "Multilingual E5",
       "Cross-Encoder",
-      "scikit-learn",
-      "Docker",
-      "Pytest"
+      "Pytest",
+      "Docker"
     ],
     keyHighlights: [
-      "Built a retrieval-only pipeline over 220 legal articles and 228 chunks combining TF-IDF and multilingual E5 embeddings.",
-      "Applied weighted Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking.",
-      "Achieved Hit@5 of 0.90 and MRR@5 of 0.7244 on a locked 80-query test set.",
-      "Exposed system via FastAPI & Streamlit; passed 33 offline pytest cases and corpus audit."
+      "Built a hybrid search pipeline combining accented & accentless TF-IDF with Multilingual E5 embeddings.",
+      "Applied Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking for high relevance.",
+      "Achieved Hit@5 of 0.90 and MRR@5 of 0.7244 on a locked 80-query evaluation set.",
+      "Exposed system via FastAPI REST endpoints and Streamlit demo interface."
     ],
     allDetails: [
       "Built a retrieval-only pipeline over 220 legal articles and 228 chunks.",
@@ -109,12 +108,12 @@ export const projectsData: Project[] = [
     id: "furniture-shop-app",
     name: "Furniture Shop Web Application",
     category: "Full-stack Web Development",
-    description: "A decoupled furniture e-commerce application with a React frontend, Laravel REST API, normalized MySQL database, customer workflows, administration workflows, and online checkout.",
+    description: "A full-featured e-commerce platform built with a React frontend and Laravel REST API, handling customer shopping workflows, admin management, and checkout.",
     githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
     demoUrl: "", // Empty string when demo is unavailable
     tags: [
-      "React",
-      "Laravel",
+      "React 19",
+      "Laravel 12",
       "PHP",
       "MySQL",
       "REST API",
@@ -124,9 +123,9 @@ export const projectsData: Project[] = [
     ],
     keyHighlights: [
       "Decoupled full-stack architecture with React 19 frontend and Laravel 12 REST API.",
-      "Complete customer & admin workflows: filtered catalog, persistent cart, and Stripe/COD checkout.",
-      "Administration portal for product, category, user, order management, and dashboard reporting.",
-      "Robust backend with 14 controllers, 9 Eloquent models, 14 migrations, and ~40 API route declarations."
+      "Complete customer experience: product catalog filters, persistent cart, and Stripe/COD checkout.",
+      "Admin portal for managing products, categories, users, orders, and sales reporting.",
+      "Normalized MySQL database schema with 14 controllers and 40 REST route declarations."
     ],
     allDetails: [
       "React 19 frontend.",
@@ -157,15 +156,11 @@ export const skillCategories: SkillCategory[] = [
     skills: [
       "Hybrid retrieval",
       "Semantic search",
-      "TF-IDF",
-      "Dense embeddings",
+      "TF-IDF & Embeddings",
       "Vector search",
-      "Query normalization",
-      "Reranking",
-      "Confidence filtering",
-      "Hit@K evaluation",
-      "MRR evaluation",
-      "Retrieval and RAG foundations"
+      "Reranking & RRF",
+      "Hit@K & MRR evaluation",
+      "Query normalization"
     ]
   },
   {
@@ -174,12 +169,9 @@ export const skillCategories: SkillCategory[] = [
       "Python",
       "SQL",
       "JavaScript",
-      "pandas",
-      "NumPy",
+      "pandas & NumPy",
       "scikit-learn",
-      "JSON and CSV processing",
-      "Data validation",
-      "Basic ETL",
+      "JSON / CSV processing",
       "Data pipelines"
     ]
   },
@@ -187,14 +179,11 @@ export const skillCategories: SkillCategory[] = [
     title: "Backend & Databases",
     skills: [
       "FastAPI",
-      "Streamlit",
-      "PostgreSQL",
-      "pgvector",
+      "PostgreSQL & pgvector",
       "MySQL",
-      "Laravel",
-      "REST APIs",
-      "Relational database design",
-      "Database normalization"
+      "Laravel REST APIs",
+      "Streamlit",
+      "Relational design"
     ]
   },
   {
@@ -208,19 +197,14 @@ export const skillCategories: SkillCategory[] = [
     ]
   },
   {
-    title: "Engineering Tools & DevOps",
+    title: "Engineering & Tools",
     skills: [
-      "Git",
-      "GitHub",
+      "Git & GitHub",
       "Docker",
-      "Pytest",
-      "Ruff",
+      "Pytest & Ruff",
       "Linux CLI",
-      "Artifact versioning",
-      "Reproducible testing",
-      "VS Code",
-      "DBeaver",
-      "Jupyter"
+      "VS Code & DBeaver",
+      "Artifact versioning"
     ]
   }
 ];

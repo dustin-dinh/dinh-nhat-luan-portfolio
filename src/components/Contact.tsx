@@ -6,18 +6,18 @@ export default function Contact() {
   const hasLinkedin = Boolean(personalInfo.linkedinUrl);
 
   return (
-    <section id="contact" className="py-20 bg-[#0d121d] border-t border-slate-800/60">
+    <section id="contact" className="py-20 bg-white border-t border-slate-200/80">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-4 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-400 uppercase tracking-wider">
+        <div className="space-y-3 mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700 uppercase tracking-wider">
             <Send className="w-3.5 h-3.5" />
             Get In Touch
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-            Connect & Collaboration
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+            Let&apos;s Connect & Work Together
           </h2>
-          <p className="text-slate-400 text-base max-w-2xl">
-            Currently open to AI, Data, and Backend Internship opportunities. Feel free to reach out directly via email or check my GitHub repositories.
+          <p className="text-slate-600 text-base max-w-2xl">
+            I am currently open to AI, Data, and Backend Internship opportunities. Whether you have a project idea, a job opportunity, or just want to chat about software engineering, I&apos;d love to hear from you!
           </p>
         </div>
 
@@ -25,14 +25,14 @@ export default function Contact() {
           {/* Email card */}
           <a
             href={`mailto:${personalInfo.email}`}
-            className="bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all group space-y-3 shadow-lg"
+            className="bg-slate-50 border border-slate-200 hover:border-blue-300 p-6 rounded-2xl transition-all group space-y-3 shadow-xs hover:shadow-md"
           >
-            <div className="p-3 w-fit rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 group-hover:scale-110 transition-transform">
+            <div className="p-3 w-fit rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:scale-110 transition-transform">
               <Mail className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-400">Email Address</h3>
-              <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors truncate">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Email Address</h3>
+              <p className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors truncate mt-0.5">
                 {personalInfo.email}
               </p>
             </div>
@@ -43,14 +43,14 @@ export default function Contact() {
             href={personalInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all group space-y-3 shadow-lg"
+            className="bg-slate-50 border border-slate-200 hover:border-blue-300 p-6 rounded-2xl transition-all group space-y-3 shadow-xs hover:shadow-md"
           >
-            <div className="p-3 w-fit rounded-xl bg-slate-800 border border-slate-700 text-slate-300 group-hover:scale-110 transition-transform">
+            <div className="p-3 w-fit rounded-xl bg-white border border-slate-200 text-slate-700 group-hover:scale-110 transition-transform">
               <GithubIcon className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-400">GitHub Profile</h3>
-              <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">GitHub Profile</h3>
+              <p className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors mt-0.5">
                 dustin-dinh
               </p>
             </div>
@@ -62,14 +62,14 @@ export default function Contact() {
               href={personalInfo.linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all group space-y-3 shadow-lg"
+              className="bg-slate-50 border border-slate-200 hover:border-blue-300 p-6 rounded-2xl transition-all group space-y-3 shadow-xs hover:shadow-md"
             >
-              <div className="p-3 w-fit rounded-xl bg-blue-500/10 border border-blue-500/30 text-blue-400 group-hover:scale-110 transition-transform">
+              <div className="p-3 w-fit rounded-xl bg-blue-50 border border-blue-100 text-blue-600 group-hover:scale-110 transition-transform">
                 <LinkedinIcon className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-400">LinkedIn Profile</h3>
-                <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">LinkedIn Profile</h3>
+                <p className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors mt-0.5">
                   Dinh Nhat Luan
                 </p>
               </div>
@@ -80,14 +80,14 @@ export default function Contact() {
           <a
             href={personalInfo.resumePath}
             download
-            className="bg-slate-900/90 border border-slate-800 hover:border-cyan-500/50 p-6 rounded-2xl transition-all group space-y-3 shadow-lg"
+            className="bg-slate-50 border border-slate-200 hover:border-blue-300 p-6 rounded-2xl transition-all group space-y-3 shadow-xs hover:shadow-md"
           >
-            <div className="p-3 w-fit rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 group-hover:scale-110 transition-transform">
+            <div className="p-3 w-fit rounded-xl bg-emerald-50 border border-emerald-100 text-emerald-700 group-hover:scale-110 transition-transform">
               <FileDown className="w-6 h-6" />
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-400">Curriculum Vitae</h3>
-              <p className="text-sm font-bold text-white group-hover:text-cyan-400 transition-colors">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500">Curriculum Vitae</h3>
+              <p className="text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors mt-0.5">
                 Download PDF Resume
               </p>
             </div>

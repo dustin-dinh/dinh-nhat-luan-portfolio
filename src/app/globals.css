@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0b0f17;
-  --foreground: #f1f5f9;
+  --background: #f8fafc;
+  --foreground: #0f172a;
 }
 
 html {
@@ -13,23 +13,14 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
 }
 
-/* Background grid pattern */
-.bg-grid-pattern {
-  background-size: 36px 36px;
+/* Light warm background grid pattern */
+.bg-light-grid {
+  background-size: 32px 32px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-/* Glowing cyan backlight utility */
-.glow-cyan-sm {
-  box-shadow: 0 0 20px -5px rgba(34, 211, 238, 0.15);
-}
-
-.glow-cyan-md {
-  box-shadow: 0 0 35px -5px rgba(34, 211, 238, 0.25);
+    radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
 }
 
 /* Custom scrollbar styling */
@@ -37,12 +28,12 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0b0f17;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #94a3b8;
 }
