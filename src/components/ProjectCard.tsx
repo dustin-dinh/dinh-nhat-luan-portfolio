@@ -1,16 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { Project } from "@/data/portfolio";
+import { ProjectContent } from "@/data/portfolio";
+import { useLanguage } from "@/context/LanguageContext";
 import { ExternalLink, ChevronDown, ChevronUp, CheckCircle2, Layers } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
 
 interface ProjectCardProps {
-  project: Project;
+  project: ProjectContent;
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <article className="bg-white border border-slate-200/90 hover:border-slate-300 rounded-2xl p-6 sm:p-8 transition-all duration-200 shadow-xs hover:shadow-md flex flex-col justify-between group">
@@ -36,7 +38,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         {/* Key Highlights (Clean List) */}
         <div className="space-y-3 bg-slate-50/80 border border-slate-200/80 rounded-xl p-4 sm:p-5">
           <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-            Key Highlights
+            {t.projects.viewHighlights}
           </h4>
           <ul className="space-y-2.5">
             {project.keyHighlights.map((highlight, index) => (
@@ -56,7 +58,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors py-1 focus:outline-none"
               aria-expanded={isExpanded}
             >
-              <span>{isExpanded ? "Hide detailed metrics" : `View all technical details (${project.allDetails.length} items)`}</span>
+              <span>{isExpanded ? t.projects.hideDetailsBtn : `${t.projects.moreDetailsBtn} (${project.allDetails.length})`}</span>
               {isExpanded ? (
                 <ChevronUp className="w-4 h-4" />
               ) : (
@@ -67,7 +69,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             {isExpanded && (
               <div className="mt-3 pt-3 border-t border-slate-200 space-y-2 animate-in fade-in duration-200">
                 <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                  Full Technical Specifications
+                  {t.projects.fullSpecsTitle}
                 </h5>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-600">
                   {project.allDetails.map((detail, idx) => (
@@ -106,7 +108,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-all active:scale-[0.98]"
         >
           <GithubIcon className="w-4 h-4" />
-          <span>View GitHub</span>
+          <span>{t.projects.viewGithub}</span>
         </a>
 
         {project.demoUrl && project.demoUrl !== "#" ? (
@@ -117,12 +119,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold transition-all active:scale-[0.98]"
           >
             <ExternalLink className="w-4 h-4" />
-            <span>Live Demo</span>
+            <span>{t.projects.liveDemo}</span>
           </a>
         ) : (
           <span className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-100 text-slate-500 border border-slate-200 text-xs font-medium cursor-default">
             <ExternalLink className="w-4 h-4 opacity-50" />
-            <span>Demo coming soon</span>
+            <span>{t.projects.demoComingSoon}</span>
           </span>
         )}
       </div>

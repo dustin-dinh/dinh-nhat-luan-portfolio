@@ -3,18 +3,13 @@
 import { useState, useEffect } from "react";
 import { Menu, X, FileDown, Code2 } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
-
-const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-  { label: "Contact", href: "#contact" },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +18,14 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navItems = [
+    { label: t.navigation.about, href: "#about" },
+    { label: t.navigation.projects, href: "#projects" },
+    { label: t.navigation.skills, href: "#skills" },
+    { label: t.navigation.education, href: "#education" },
+    { label: t.navigation.contact, href: "#contact" },
+  ];
 
   return (
     <header
@@ -42,7 +45,7 @@ export default function Navbar() {
             <Code2 className="w-5 h-5" />
           </div>
           <span className="font-semibold">
-            Dinh Nhat Luan<span className="text-blue-600">.</span>
+            {t.navigation.brand}<span className="text-blue-600">.</span>
           </span>
         </a>
 
@@ -52,22 +55,23 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="px-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white rounded-full transition-all shadow-none hover:shadow-xs"
+              className="px-4 py-1.5 text-sm font-medium text-slate-600 hover:text-slate-900 hover:bg-white rounded-full transition-all"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        {/* Action Button */}
+        {/* Action Button & Language Switcher */}
         <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher />
           <a
             href={personalInfo.resumePath}
             download
             className="inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-xs active:scale-[0.98]"
           >
             <FileDown className="w-4 h-4" />
-            <span>Resume</span>
+            <span>{t.navigation.resume}</span>
           </a>
         </div>
 
@@ -84,7 +88,7 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 mt-3 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
           <div className="flex flex-col space-y-1">
             {navItems.map((item) => (
               <a
@@ -98,15 +102,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="pt-3 border-t border-slate-100">
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between gap-3">
+            <LanguageSwitcher />
             <a
               href={personalInfo.resumePath}
               download
               onClick={() => setMobileMenuOpen(false)}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-xs"
+              className="flex-1 flex items-center justify-center gap-2 px-4 py-2 text-sm font-semibold rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-all shadow-xs"
             >
               <FileDown className="w-4 h-4" />
-              <span>Download Resume</span>
+              <span>{t.navigation.resume}</span>
             </a>
           </div>
         </div>

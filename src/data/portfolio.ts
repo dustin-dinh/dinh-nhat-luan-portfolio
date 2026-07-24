@@ -1,4 +1,6 @@
-export interface Project {
+export type Language = "en" | "vi";
+
+export interface ProjectContent {
   id: string;
   name: string;
   category: string;
@@ -10,201 +12,489 @@ export interface Project {
   allDetails: string[];
 }
 
-export interface SkillCategory {
+export interface SkillCategoryContent {
   title: string;
   skills: string[];
 }
 
-export interface Education {
-  institution: string;
-  degree: string;
-  period: string;
-  major: string;
-  englishLevel: string;
-  coursework: string[];
-}
-
-export interface PersonalInfo {
-  name: string;
-  title: string;
-  location: string;
-  email: string;
-  github: string;
-  linkedinUrl: string;
-  availabilityLabel: string;
-  bio: string;
-  heroIntro: string;
-  resumePath: string;
-}
-
-export const personalInfo: PersonalInfo = {
+export const personalInfo = {
   name: "Dinh Nhat Luan",
-  title: "AI Engineer Intern | Information Retrieval & Backend Developer",
   location: "Ho Chi Minh City, Vietnam",
   email: "nhatluan.dinh.2901@gmail.com",
   github: "https://github.com/dustin-dinh",
-  linkedinUrl: "", // Unverified LinkedIn URL kept empty
-  availabilityLabel: "Open to AI, Data & Backend Internship Opportunities",
-  bio: "I am an Information Systems student at the University of Information Technology (VNU-HCM) who loves building practical, data-driven software. My core interest lies in backend development, information retrieval, and applied AI. I enjoy turning complex challenges—like natural language legal queries or e-commerce logic—into clean, reproducible applications with well-structured APIs. I am eager to join a team as an intern to learn, collaborate, and contribute to real-world products.",
-  heroIntro: "Hi, I'm Luan! An Information Systems student passionate about information retrieval, backend web development, and applied AI.",
+  facebook: "https://www.facebook.com/immayoungbigbois.raw",
+  zaloNumber: "0388744779",
+  zaloUrl: "https://zalo.me/0388744779",
+  linkedinUrl: "", // Kept empty when unverified
   resumePath: "/resume.pdf"
 };
 
-export const educationInfo: Education = {
-  institution: "VNU-HCM University of Information Technology",
-  degree: "Bachelor's program in Information Systems",
-  period: "2023–2026",
-  major: "Information Systems",
-  englishLevel: "TOEIC 700 / B2 equivalent",
-  coursework: [
-    "Database Systems",
-    "Web Application Development",
-    "Object-Oriented Programming",
-    "Software Engineering"
-  ]
+export const portfolioContent = {
+  en: {
+    navigation: {
+      brand: "Dinh Nhat Luan",
+      about: "About",
+      projects: "Projects",
+      skills: "Skills",
+      education: "Education",
+      contact: "Contact",
+      resume: "Resume"
+    },
+    hero: {
+      title: "AI Engineer Intern | Information Retrieval & Backend Developer",
+      availabilityLabel: "Open to AI, Data & Backend Internship Opportunities",
+      heroIntro: "Hi, I'm Luan! An Information Systems student passionate about information retrieval, backend web development, and applied AI.",
+      viewProjectsBtn: "View Projects",
+      downloadResumeBtn: "Download Resume",
+      githubBtn: "GitHub",
+      emailBtn: "Email"
+    },
+    about: {
+      sectionTag: "About Me",
+      title: "My Journey & Engineering Focus",
+      whoIAmTitle: "Who I Am",
+      bio: "I am an Information Systems student at the University of Information Technology (VNU-HCM) who loves building practical, data-driven software. My core interest lies in backend development, information retrieval, and applied AI. I enjoy turning complex challenges—like natural language legal queries or e-commerce logic—into clean, reproducible applications with well-structured APIs. I am eager to join a team as an intern to learn, collaborate, and contribute to real-world products.",
+      coreInterestLabel: "Core Interest",
+      coreInterestValue: "Backend Systems & IR Search",
+      mindsetLabel: "Mindset",
+      mindsetValue: "Project-based & Reproducible",
+      practicalTitle: "Practical Development",
+      practicalSubtitle: "Building software that solves real tasks",
+      practicalDesc: "I focus on clean APIs, normalized database designs, and reliable testing rather than unnecessary complexity.",
+      academicTitle: "Academic Foundation",
+      collaborationTitle: "Learning & Teamwork",
+      collaborationSubtitle: "Ready for internship roles",
+      collaborationDesc: "Eager to learn from experienced engineers, accept feedback, and contribute effectively to team projects."
+    },
+    projects: {
+      sectionTag: "Portfolio Highlights",
+      title: "Featured Engineering Projects",
+      subtitle: "Real-world applications focusing on information retrieval, backend APIs, and clean software architecture.",
+      viewHighlights: "Key Highlights",
+      moreDetailsBtn: "View all technical details",
+      hideDetailsBtn: "Hide detailed metrics",
+      fullSpecsTitle: "Full Technical Specifications",
+      viewGithub: "View GitHub",
+      liveDemo: "Live Demo",
+      demoComingSoon: "Demo coming soon",
+      items: [
+        {
+          id: "vietnamese-legal-search",
+          name: "Vietnamese Legal Semantic Search Engine",
+          category: "Information Retrieval / NLP / Backend",
+          description: "A specialized search system helping users find relevant Vietnamese labor-law provisions using natural language queries, including accentless text and common abbreviations.",
+          githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
+          demoUrl: "",
+          tags: [
+            "Python",
+            "FastAPI",
+            "Streamlit",
+            "TF-IDF",
+            "Multilingual E5",
+            "Cross-Encoder",
+            "Pytest",
+            "Docker"
+          ],
+          keyHighlights: [
+            "Built a hybrid search pipeline combining accented & accentless TF-IDF with Multilingual E5 embeddings.",
+            "Applied Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking for high relevance.",
+            "Achieved Hit@5 of 0.90 and MRR@5 of 0.7244 on a locked 80-query evaluation set.",
+            "Exposed system via FastAPI REST endpoints and Streamlit demo interface."
+          ],
+          allDetails: [
+            "Built a retrieval-only pipeline over 220 legal articles and 228 chunks.",
+            "Combined accented and accentless TF-IDF retrieval.",
+            "Used multilingual E5 embeddings for semantic retrieval.",
+            "Applied weighted Reciprocal Rank Fusion.",
+            "Used Cross-Encoder reranking.",
+            "Returned original legal provisions with article, PDF page, and source metadata.",
+            "Achieved Hit@5 of 0.90.",
+            "Achieved MRR@5 of 0.7244 on a locked 80-query test set.",
+            "Added confidence thresholds, clarification behavior, and out-of-scope abstention.",
+            "Exposed the retrieval system using FastAPI and Streamlit.",
+            "Verified 30 out of 30 versioned artifacts.",
+            "Passed a 10 out of 10 corpus audit.",
+            "Passed 33 offline pytest cases."
+          ]
+        },
+        {
+          id: "furniture-shop-app",
+          name: "Furniture Shop Web Application",
+          category: "Full-stack Web Development",
+          description: "A full-featured e-commerce platform built with a React frontend and Laravel REST API, handling customer shopping workflows, admin management, and checkout.",
+          githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
+          demoUrl: "",
+          tags: [
+            "React 19",
+            "Laravel 12",
+            "PHP",
+            "MySQL",
+            "REST API",
+            "Sanctum",
+            "Stripe",
+            "Vite"
+          ],
+          keyHighlights: [
+            "Decoupled full-stack architecture with React 19 frontend and Laravel 12 REST API.",
+            "Complete customer experience: product catalog filters, persistent cart, and Stripe/COD checkout.",
+            "Admin portal for managing products, categories, users, orders, and sales reporting.",
+            "Normalized MySQL database schema with 14 controllers and 40 REST route declarations."
+          ],
+          allDetails: [
+            "React 19 frontend.",
+            "Laravel 12 REST API.",
+            "MySQL relational database.",
+            "Laravel Sanctum authentication.",
+            "Customer and administrator workflows.",
+            "Filtered and paginated product catalog.",
+            "Persistent shopping cart.",
+            "COD and Stripe checkout.",
+            "Order history.",
+            "Administration for products, categories, users, orders, and shipping charges.",
+            "Dashboard reporting.",
+            "Temporary image uploads with large and small image processing.",
+            "14 controllers.",
+            "9 Eloquent models.",
+            "14 migrations.",
+            "56 JSX files.",
+            "Approximately 40 API route declarations.",
+            "All 64 PHP files passed syntax checks."
+          ]
+        }
+      ]
+    },
+    skills: {
+      sectionTag: "Capabilities",
+      title: "Technical Skills",
+      subtitle: "Technologies and concepts practiced through hands-on project implementations and coursework.",
+      categories: [
+        {
+          title: "AI & Information Retrieval",
+          skills: [
+            "Hybrid retrieval",
+            "Semantic search",
+            "TF-IDF & Embeddings",
+            "Vector search",
+            "Reranking & RRF",
+            "Hit@K & MRR evaluation",
+            "Query normalization"
+          ]
+        },
+        {
+          title: "Programming & Data",
+          skills: [
+            "Python",
+            "SQL",
+            "JavaScript",
+            "pandas & NumPy",
+            "scikit-learn",
+            "JSON / CSV processing",
+            "Data pipelines"
+          ]
+        },
+        {
+          title: "Backend & Databases",
+          skills: [
+            "FastAPI",
+            "PostgreSQL & pgvector",
+            "MySQL",
+            "Laravel REST APIs",
+            "Streamlit",
+            "Relational design"
+          ]
+        },
+        {
+          title: "Frontend Development",
+          skills: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vite"
+          ]
+        },
+        {
+          title: "Engineering & Tools",
+          skills: [
+            "Git & GitHub",
+            "Docker",
+            "Pytest & Ruff",
+            "Linux CLI",
+            "VS Code & DBeaver",
+            "Artifact versioning"
+          ]
+        }
+      ]
+    },
+    education: {
+      sectionTag: "Academic Background",
+      title: "Education & Qualifications",
+      institution: "VNU-HCM University of Information Technology",
+      degree: "Bachelor's program in Information Systems",
+      major: "Information Systems",
+      period: "2023–2026",
+      englishLevel: "TOEIC 700 / B2 equivalent",
+      courseworkTitle: "Relevant Coursework",
+      coursework: [
+        "Database Systems",
+        "Web Application Development",
+        "Object-Oriented Programming",
+        "Software Engineering"
+      ]
+    },
+    contact: {
+      sectionTag: "Get In Touch",
+      title: "Let's Connect & Work Together",
+      description: "I am currently open to AI, Data, and Backend Internship opportunities. Whether you have a project idea, a job opportunity, or just want to chat about software engineering, I'd love to hear from you!",
+      emailLabel: "Email Address",
+      githubLabel: "GitHub Profile",
+      facebookLabel: "Facebook",
+      zaloLabel: "Zalo Contact",
+      resumeLabel: "Curriculum Vitae",
+      downloadResume: "Download PDF Resume",
+      copyZaloNumber: "Copy Phone Number",
+      copiedZaloNumber: "Copied!",
+      closingMsg: "I am always open to discussing internship roles, technology projects, or ideas we can build together.",
+      facebookAria: "Visit Dinh Nhat Luan on Facebook",
+      zaloAria: "Contact Dinh Nhat Luan on Zalo"
+    },
+    footer: {
+      builtWith: "Built with Next.js, TypeScript & Tailwind CSS. Ready for Vercel.",
+      backToTop: "Back to top"
+    }
+  },
+
+  vi: {
+    navigation: {
+      brand: "Đinh Nhật Luân",
+      about: "Giới thiệu",
+      projects: "Dự án",
+      skills: "Kỹ năng",
+      education: "Học vấn",
+      contact: "Liên hệ",
+      resume: "Tải CV"
+    },
+    hero: {
+      title: "AI Engineer Intern | Lập trình viên Backend & Hệ thống tìm kiếm",
+      availabilityLabel: "Đang tìm kiếm cơ hội thực tập về AI, Dữ liệu và Backend",
+      heroIntro: "Xin chào, tôi là Luân! Sinh viên ngành Hệ thống Thông tin đam mê truy xuất thông tin, phát triển Backend và ứng dụng AI.",
+      viewProjectsBtn: "Xem dự án",
+      downloadResumeBtn: "Tải CV",
+      githubBtn: "GitHub",
+      emailBtn: "Email"
+    },
+    about: {
+      sectionTag: "Giới thiệu",
+      title: "Hành trình & Định hướng kỹ thuật",
+      whoIAmTitle: "Tôi là ai",
+      bio: "Tôi là sinh viên ngành Hệ thống Thông tin tại Trường Đại học Công nghệ Thông tin (ĐHQG-HCM) yêu thích xây dựng phần mềm thực tiễn hướng dữ liệu. Định hướng chính của tôi là phát triển Backend, hệ thống truy xuất thông tin và AI ứng dụng. Tôi thích biến các bài toán phức tạp—như tìm kiếm điều khoản luật lao động bằng ngôn ngữ tự nhiên hay xử lý quy trình thương mại điện tử—thành ứng dụng sạch, có thể tái lập và có API thiết kế chuẩn xác. Tôi rất mong muốn gia nhập đội ngũ thực tập để học hỏi, hợp tác và đóng góp vào sản phẩm thực tế.",
+      coreInterestLabel: "Lĩnh vực chính",
+      coreInterestValue: "Hệ thống Backend & Tìm kiếm IR",
+      mindsetLabel: "Tư duy làm việc",
+      mindsetValue: "Thực hành dự án & Tái lập tốt",
+      practicalTitle: "Phát triển thực tiễn",
+      practicalSubtitle: "Xây dựng phần mềm giải quyết công việc thực tế",
+      practicalDesc: "Tôi tập trung vào thiết kế API sạch, cơ sở dữ liệu chuẩn hóa và kiểm thử tin cậy thay vì những phức tạp không cần thiết.",
+      academicTitle: "Nền tảng học thuật",
+      collaborationTitle: "Học hỏi & Làm việc nhóm",
+      collaborationSubtitle: "Sẵn sàng cho vị trí thực tập",
+      collaborationDesc: "Luôn sẵn sàng học hỏi từ các kỹ sư giàu kinh nghiệm, tiếp thu phản hồi và đóng góp hiệu quả cho các dự án chung."
+    },
+    projects: {
+      sectionTag: "Dự án tiêu biểu",
+      title: "Dự án nổi bật",
+      subtitle: "Các ứng dụng thực tế tập trung vào truy xuất thông tin, API backend và kiến trúc phần mềm chuẩn mực.",
+      viewHighlights: "Điểm nổi bật",
+      moreDetailsBtn: "Xem đầy đủ chi tiết kỹ thuật",
+      hideDetailsBtn: "Ẩn chi tiết thông số",
+      fullSpecsTitle: "Thông số kỹ thuật chi tiết",
+      viewGithub: "Xem GitHub",
+      liveDemo: "Bản demo",
+      demoComingSoon: "Bản demo sắp ra mắt",
+      items: [
+        {
+          id: "vietnamese-legal-search",
+          name: "Vietnamese Legal Semantic Search Engine",
+          category: "Truy xuất thông tin / NLP / Backend",
+          description: "Hệ thống truy xuất thông tin pháp lý giúp người dùng tra cứu các điều khoản Luật Lao động Việt Nam bằng câu hỏi tự nhiên, bao gồm văn bản không dấu và từ viết tắt.",
+          githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
+          demoUrl: "",
+          tags: [
+            "Python",
+            "FastAPI",
+            "Streamlit",
+            "TF-IDF",
+            "Multilingual E5",
+            "Cross-Encoder",
+            "Pytest",
+            "Docker"
+          ],
+          keyHighlights: [
+            "Xây dựng pipeline tìm kiếm lai kết hợp TF-IDF có dấu & không dấu với Multilingual E5 embeddings.",
+            "Áp dụng Reciprocal Rank Fusion (RRF) và Cross-Encoder reranking để tối ưu độ liên quan.",
+            "Đạt Hit@5 0.90 và MRR@5 0.7244 trên bộ kiểm thử 80 câu hỏi khóa cố định.",
+            "Cung cấp REST API qua FastAPI và giao diện thử nghiệm qua Streamlit."
+          ],
+          allDetails: [
+            "Xây dựng pipeline chỉ truy xuất trên 220 điều luật và 228 đoạn dữ liệu (chunks).",
+            "Kết hợp truy xuất TF-IDF có dấu và không dấu.",
+            "Sử dụng Multilingual E5 embeddings cho truy xuất ngữ nghĩa.",
+            "Áp dụng Reciprocal Rank Fusion có trọng số.",
+            "Sử dụng Cross-Encoder reranking.",
+            "Trả về các điều khoản luật gốc kèm metadata điều, trang PDF và nguồn.",
+            "Đạt Hit@5 là 0.90.",
+            "Đạt MRR@5 là 0.7244 trên bộ kiểm thử 80 câu hỏi cố định.",
+            "Thêm ngưỡng tin cậy, hành vi làm rõ và từ chối ngoài phạm vi.",
+            "Cung cấp hệ thống truy xuất bằng FastAPI và Streamlit.",
+            "Xác minh 30/30 artifact phiên bản.",
+            "Vượt qua kiểm tra 10/10 dữ liệu corpus.",
+            "Đạt 33 test case offline với Pytest."
+          ]
+        },
+        {
+          id: "furniture-shop-app",
+          name: "Furniture Shop Web Application",
+          category: "Phát triển Web Full-stack",
+          description: "Nền tảng thương mại điện tử nội thất với frontend React 19 tách biệt và Laravel 12 REST API, xử lý trọn vẹn quy trình mua hàng, quản trị và thanh toán.",
+          githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
+          demoUrl: "",
+          tags: [
+            "React 19",
+            "Laravel 12",
+            "PHP",
+            "MySQL",
+            "REST API",
+            "Sanctum",
+            "Stripe",
+            "Vite"
+          ],
+          keyHighlights: [
+            "Kiến trúc full-stack tách biệt với frontend React 19 và Laravel 12 REST API.",
+            "Trải nghiệm khách hàng hoàn chỉnh: lọc sản phẩm, giỏ hàng lưu trữ và thanh toán Stripe/COD.",
+            "Trang quản trị cho phép quản lý sản phẩm, danh mục, người dùng, đơn hàng và báo cáo doanh số.",
+            "Cơ sở dữ liệu MySQL chuẩn hóa với 14 controller và khoảng 40 khai báo REST route."
+          ],
+          allDetails: [
+            "Frontend React 19.",
+            "Laravel 12 REST API.",
+            "Cơ sở dữ liệu quan hệ MySQL.",
+            "Xác thực Laravel Sanctum.",
+            "Quy trình làm việc cho khách hàng và quản trị viên.",
+            "Danh mục sản phẩm có bộ lọc và phân trang.",
+            "Giỏ hàng lưu trữ bền vững.",
+            "Thanh toán COD và Stripe.",
+            "Lịch sử đơn hàng.",
+            "Quản trị sản phẩm, danh mục, người dùng, đơn hàng và phí vận chuyển.",
+            "Báo cáo bảng điều khiển.",
+            "Tải lên ảnh tạm thời với xử lý ảnh lớn và nhỏ.",
+            "14 controller.",
+            "9 model Eloquent.",
+            "14 migration.",
+            "56 tệp JSX.",
+            "Khoảng 40 khai báo route API.",
+            "Tất cả 64 tệp PHP đều đạt kiểm tra cú pháp."
+          ]
+        }
+      ]
+    },
+    skills: {
+      sectionTag: "Năng lực",
+      title: "Kỹ năng kỹ thuật",
+      subtitle: "Các công nghệ và khái niệm được rèn luyện qua các dự án thực tế và học phần đại học.",
+      categories: [
+        {
+          title: "AI & Truy xuất thông tin",
+          skills: [
+            "Hybrid retrieval",
+            "Semantic search",
+            "TF-IDF & Embeddings",
+            "Vector search",
+            "Reranking & RRF",
+            "Hit@K & MRR evaluation",
+            "Query normalization"
+          ]
+        },
+        {
+          title: "Lập trình & Dữ liệu",
+          skills: [
+            "Python",
+            "SQL",
+            "JavaScript",
+            "pandas & NumPy",
+            "scikit-learn",
+            "Xử lý JSON / CSV",
+            "Data pipelines"
+          ]
+        },
+        {
+          title: "Backend & Cơ sở dữ liệu",
+          skills: [
+            "FastAPI",
+            "PostgreSQL & pgvector",
+            "MySQL",
+            "Laravel REST APIs",
+            "Streamlit",
+            "Thiết kế CSDL quan hệ"
+          ]
+        },
+        {
+          title: "Phát triển Frontend",
+          skills: [
+            "React",
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Vite"
+          ]
+        },
+        {
+          title: "Công cụ & DevOps",
+          skills: [
+            "Git & GitHub",
+            "Docker",
+            "Pytest & Ruff",
+            "Linux CLI",
+            "VS Code & DBeaver",
+            "Artifact versioning"
+          ]
+        }
+      ]
+    },
+    education: {
+      sectionTag: "Nền tảng học thuật",
+      title: "Học vấn & Bằng cấp",
+      institution: "Trường Đại học Công nghệ Thông tin - ĐHQG-HCM",
+      degree: "Chương trình Cử nhân ngành Hệ thống Thông tin",
+      major: "Hệ thống Thông tin",
+      period: "2023–2026",
+      englishLevel: "TOEIC 700 / Tương đương B2",
+      courseworkTitle: "Môn học tiêu biểu",
+      coursework: [
+        "Cơ sở dữ liệu",
+        "Phát triển ứng dụng Web",
+        "Lập trình hướng đối tượng",
+        "Công nghệ phần mềm"
+      ]
+    },
+    contact: {
+      sectionTag: "Liên hệ",
+      title: "Liên hệ với tôi",
+      description: "Tôi hiện đang tìm kiếm các cơ hội thực tập về AI, Dữ liệu và Backend. Nếu bạn có ý tưởng dự án, cơ hội công việc hoặc muốn trao đổi về lập trình phần mềm, hãy liên hệ với tôi!",
+      emailLabel: "Địa chỉ Email",
+      githubLabel: "Hồ sơ GitHub",
+      facebookLabel: "Facebook",
+      zaloLabel: "Liên hệ Zalo",
+      resumeLabel: "Hồ sơ cá nhân",
+      downloadResume: "Tải CV PDF",
+      copyZaloNumber: "Sao chép số điện thoại",
+      copiedZaloNumber: "Đã sao chép!",
+      closingMsg: "Tôi luôn sẵn sàng trao đổi về cơ hội thực tập, dự án công nghệ hoặc những ý tưởng có thể cùng nhau phát triển.",
+      facebookAria: "Ghé thăm Facebook của Đinh Nhật Luân",
+      zaloAria: "Liên hệ Zalo với Đinh Nhật Luân"
+    },
+    footer: {
+      builtWith: "Xây dựng bằng Next.js, TypeScript & Tailwind CSS. Sẵn sàng cho Vercel.",
+      backToTop: "Về đầu trang"
+    }
+  }
 };
-
-export const projectsData: Project[] = [
-  {
-    id: "vietnamese-legal-search",
-    name: "Vietnamese Legal Semantic Search Engine",
-    category: "Information Retrieval / NLP / Backend",
-    description: "A specialized search system helping users find relevant Vietnamese labor-law provisions using natural language queries, including accentless text and common abbreviations.",
-    githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
-    demoUrl: "", // Empty string when demo is unavailable
-    tags: [
-      "Python",
-      "FastAPI",
-      "Streamlit",
-      "TF-IDF",
-      "Multilingual E5",
-      "Cross-Encoder",
-      "Pytest",
-      "Docker"
-    ],
-    keyHighlights: [
-      "Built a hybrid search pipeline combining accented & accentless TF-IDF with Multilingual E5 embeddings.",
-      "Applied Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking for high relevance.",
-      "Achieved Hit@5 of 0.90 and MRR@5 of 0.7244 on a locked 80-query evaluation set.",
-      "Exposed system via FastAPI REST endpoints and Streamlit demo interface."
-    ],
-    allDetails: [
-      "Built a retrieval-only pipeline over 220 legal articles and 228 chunks.",
-      "Combined accented and accentless TF-IDF retrieval.",
-      "Used multilingual E5 embeddings for semantic retrieval.",
-      "Applied weighted Reciprocal Rank Fusion.",
-      "Used Cross-Encoder reranking.",
-      "Returned original legal provisions with article, PDF page, and source metadata.",
-      "Achieved Hit@5 of 0.90.",
-      "Achieved MRR@5 of 0.7244 on a locked 80-query test set.",
-      "Added confidence thresholds, clarification behavior, and out-of-scope abstention.",
-      "Exposed the retrieval system using FastAPI and Streamlit.",
-      "Verified 30 out of 30 versioned artifacts.",
-      "Passed a 10 out of 10 corpus audit.",
-      "Passed 33 offline pytest cases."
-    ]
-  },
-  {
-    id: "furniture-shop-app",
-    name: "Furniture Shop Web Application",
-    category: "Full-stack Web Development",
-    description: "A full-featured e-commerce platform built with a React frontend and Laravel REST API, handling customer shopping workflows, admin management, and checkout.",
-    githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
-    demoUrl: "", // Empty string when demo is unavailable
-    tags: [
-      "React 19",
-      "Laravel 12",
-      "PHP",
-      "MySQL",
-      "REST API",
-      "Sanctum",
-      "Stripe",
-      "Vite"
-    ],
-    keyHighlights: [
-      "Decoupled full-stack architecture with React 19 frontend and Laravel 12 REST API.",
-      "Complete customer experience: product catalog filters, persistent cart, and Stripe/COD checkout.",
-      "Admin portal for managing products, categories, users, orders, and sales reporting.",
-      "Normalized MySQL database schema with 14 controllers and 40 REST route declarations."
-    ],
-    allDetails: [
-      "React 19 frontend.",
-      "Laravel 12 REST API.",
-      "MySQL relational database.",
-      "Laravel Sanctum authentication.",
-      "Customer and administrator workflows.",
-      "Filtered and paginated product catalog.",
-      "Persistent shopping cart.",
-      "COD and Stripe checkout.",
-      "Order history.",
-      "Administration for products, categories, users, orders, and shipping charges.",
-      "Dashboard reporting.",
-      "Temporary image uploads with large and small image processing.",
-      "14 controllers.",
-      "9 Eloquent models.",
-      "14 migrations.",
-      "56 JSX files.",
-      "Approximately 40 API route declarations.",
-      "All 64 PHP files passed syntax checks."
-    ]
-  }
-];
-
-export const skillCategories: SkillCategory[] = [
-  {
-    title: "AI & Information Retrieval",
-    skills: [
-      "Hybrid retrieval",
-      "Semantic search",
-      "TF-IDF & Embeddings",
-      "Vector search",
-      "Reranking & RRF",
-      "Hit@K & MRR evaluation",
-      "Query normalization"
-    ]
-  },
-  {
-    title: "Programming & Data",
-    skills: [
-      "Python",
-      "SQL",
-      "JavaScript",
-      "pandas & NumPy",
-      "scikit-learn",
-      "JSON / CSV processing",
-      "Data pipelines"
-    ]
-  },
-  {
-    title: "Backend & Databases",
-    skills: [
-      "FastAPI",
-      "PostgreSQL & pgvector",
-      "MySQL",
-      "Laravel REST APIs",
-      "Streamlit",
-      "Relational design"
-    ]
-  },
-  {
-    title: "Frontend Development",
-    skills: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vite"
-    ]
-  },
-  {
-    title: "Engineering & Tools",
-    skills: [
-      "Git & GitHub",
-      "Docker",
-      "Pytest & Ruff",
-      "Linux CLI",
-      "VS Code & DBeaver",
-      "Artifact versioning"
-    ]
-  }
-];
