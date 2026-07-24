@@ -123,9 +123,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <span>Live Demo</span>
           </a>
         ) : (
-          <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800/40 text-slate-500 border border-slate-800 text-xs font-medium cursor-not-allowed">
-            <ExternalLink className="w-4 h-4" />
-            <span>Live Demo (Offline)</span>
+          <span className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-800/40 text-slate-400 border border-slate-800/80 text-xs font-medium cursor-default">
+            <ExternalLink className="w-4 h-4 opacity-60" />
+            <span>Demo coming soon</span>
           </span>
         )}
       </div>

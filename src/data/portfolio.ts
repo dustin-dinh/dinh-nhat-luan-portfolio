@@ -30,7 +30,7 @@ export interface PersonalInfo {
   location: string;
   email: string;
   github: string;
-  linkedinPlaceholder: string;
+  linkedinUrl: string;
   availabilityLabel: string;
   bio: string;
   heroIntro: string;
@@ -43,7 +43,7 @@ export const personalInfo: PersonalInfo = {
   location: "Ho Chi Minh City, Vietnam",
   email: "nhatluan.dinh.2901@gmail.com",
   github: "https://github.com/dustin-dinh",
-  linkedinPlaceholder: "https://linkedin.com/in/dustin-dinh",
+  linkedinUrl: "", // Unverified LinkedIn URL removed
   availabilityLabel: "Open to AI, Data, and Backend Internship Opportunities",
   bio: "I am an Information Systems student at the University of Information Technology with hands-on experience building Vietnamese information retrieval systems and data-driven web applications. I work mainly with Python, FastAPI, semantic search, retrieval evaluation, SQL, REST APIs, and reproducible testing.",
   heroIntro: "Information Systems student specializing in high-accuracy Vietnamese information retrieval systems, AI engineering, and robust backend web applications.",
@@ -71,7 +71,7 @@ export const projectsData: Project[] = [
     category: "Information Retrieval / NLP / Backend",
     description: "A Vietnamese legal information retrieval system that helps users search labor-law provisions using natural Vietnamese questions, including accentless text and abbreviations.",
     githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
-    demoUrl: "#", // Centralized placeholder when live demo is unavailable
+    demoUrl: "", // Empty string when demo is unavailable
     tags: [
       "Python",
       "FastAPI",
@@ -111,7 +111,7 @@ export const projectsData: Project[] = [
     category: "Full-stack Web Development",
     description: "A decoupled furniture e-commerce application with a React frontend, Laravel REST API, normalized MySQL database, customer workflows, administration workflows, and online checkout.",
     githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
-    demoUrl: "#", // Centralized placeholder when live demo is unavailable
+    demoUrl: "", // Empty string when demo is unavailable
     tags: [
       "React",
       "Laravel",
