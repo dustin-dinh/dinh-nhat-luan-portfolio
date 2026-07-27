@@ -21,7 +21,6 @@ export const personalInfo = {
   facebook: "https://www.facebook.com/immayoungbigbois.raw",
   zaloUrl: "https://zalo.me/0388744779",
   linkedinUrl: "", // Kept empty when unverified
-  resumePath: "/resume.pdf"
 };
 
 export const portfolioContent = {
@@ -33,35 +32,31 @@ export const portfolioContent = {
       currently: "Currently",
       projects: "Projects",
       skills: "Skills",
-      education: "Education",
+      photography: "Photography",
       contact: "Contact",
-      resume: "Resume"
     },
     hero: {
       title: "AI Engineer Intern | Information Retrieval & Backend Developer",
       availabilityLabel: "Open to AI, Data & Backend Internship Opportunities",
       heroIntro: "Hi, I'm Luan! An Information Systems student passionate about information retrieval, backend web development, and applied AI.",
       viewProjectsBtn: "View Projects",
-      downloadResumeBtn: "Download Resume",
       githubBtn: "GitHub",
       emailBtn: "Email"
     },
     about: {
       sectionTag: "About Me",
-      title: "My Journey & Engineering Focus",
+      title: "Who I Am",
       whoIAmTitle: "Who I Am",
-      bio: "I am an Information Systems student at the University of Information Technology (VNU-HCM) who loves building practical, data-driven software. My core interest lies in backend development, information retrieval, and applied AI. I enjoy turning complex challenges—like natural language legal queries or e-commerce logic—into clean, reproducible applications with well-structured APIs. I am eager to join a team as an intern to learn, collaborate, and contribute to real-world products.",
+      bio: "I am currently a student at the University of Information Technology (UIT), and technology is my main passion. I major in Information Systems and have been deeply interested in this field since grade 10. I am looking for an internship where I can learn in a real engineering environment while contributing the skills and experience gained through personal projects. Beyond technology, I also enjoy photography, especially capturing nature.",
       coreInterestLabel: "Core Interest",
-      coreInterestValue: "Backend Systems & IR Search",
-      mindsetLabel: "Mindset",
-      mindsetValue: "Project-based & Reproducible",
-      practicalTitle: "Practical Development",
-      practicalSubtitle: "Building software that solves real tasks",
-      practicalDesc: "I focus on clean APIs, normalized database designs, and reliable testing rather than unnecessary complexity.",
-      academicTitle: "Academic Foundation",
-      collaborationTitle: "Learning & Teamwork",
-      collaborationSubtitle: "Ready for internship roles",
-      collaborationDesc: "Eager to learn from experienced engineers, accept feedback, and contribute effectively to team projects."
+      coreInterestValue: "Data Systems, AI & Backend",
+      mindsetLabel: "Current Goal",
+      mindsetValue: "Seeking an internship opportunity"
+    },
+    photography: {
+      sectionTag: "Beyond Technology",
+      title: "Through My Lens",
+      description: "A small corner for the nature photographs I capture in my free time."
     },
     currently: {
       sectionTag: "Focus",
@@ -79,6 +74,22 @@ export const portfolioContent = {
       techStack: "Tech stack",
       viewGithub: "View GitHub",
       items: [
+        {
+          id: "big-data-healthcare",
+          name: "Big Data Healthcare Streaming Pipeline",
+          description: "A Dockerized local research platform that replays Fitbit/SEMA data through Kafka, processes micro-batches with Spark Structured Streaming and a Bronze–Silver–Gold architecture, serves analytics through PostgreSQL and Grafana, and supports Spark MLlib experiments.",
+          githubUrl: "https://github.com/dustin-dinh/big-data-healthcare-streaming-pipeline",
+          tags: [
+            "PySpark",
+            "Kafka",
+            "Spark Streaming",
+            "Spark MLlib",
+            "PostgreSQL",
+            "Grafana",
+            "Airflow",
+            "Docker"
+          ]
+        },
         {
           id: "vietnamese-legal-search",
           name: "Vietnamese Legal Semantic Search Engine",
@@ -136,6 +147,7 @@ export const portfolioContent = {
             "Python",
             "SQL",
             "JavaScript",
+            "PySpark",
             "pandas & NumPy",
             "scikit-learn",
             "JSON / CSV processing",
@@ -168,28 +180,14 @@ export const portfolioContent = {
           skills: [
             "Git & GitHub",
             "Docker",
+            "Apache Kafka",
+            "Apache Airflow",
             "Pytest & Ruff",
             "Linux CLI",
             "VS Code & DBeaver",
             "Artifact versioning"
           ]
         }
-      ]
-    },
-    education: {
-      sectionTag: "Academic Background",
-      title: "Education & Qualifications",
-      institution: "VNU-HCM University of Information Technology",
-      degree: "Bachelor's program in Information Systems",
-      major: "Information Systems",
-      period: "2023–2026",
-      englishLevel: "TOEIC 700 / B2 equivalent",
-      courseworkTitle: "Relevant Coursework",
-      coursework: [
-        "Database Systems",
-        "Web Application Development",
-        "Object-Oriented Programming",
-        "Software Engineering"
       ]
     },
     contact: {
@@ -200,7 +198,6 @@ export const portfolioContent = {
       viewGithub: "View GitHub",
       visitFacebook: "Visit Facebook",
       chatZalo: "Chat on Zalo",
-      downloadResume: "Download Resume",
       emailSubject: "Internship Opportunity for Dinh Nhat Luan",
       closingMsg: "I am always open to discussing internship roles, technology projects, or ideas we can build together.",
       facebookAria: "Visit Dinh Nhat Luan on Facebook",
@@ -220,35 +217,31 @@ export const portfolioContent = {
       currently: "Hiện tại",
       projects: "Dự án",
       skills: "Kỹ năng",
-      education: "Học vấn",
+      photography: "Nhiếp ảnh",
       contact: "Liên hệ",
-      resume: "Tải CV"
     },
     hero: {
       title: "AI Engineer Intern | Lập trình viên Backend & Hệ thống tìm kiếm",
       availabilityLabel: "Đang tìm kiếm cơ hội thực tập về AI, Dữ liệu và Backend",
-      heroIntro: "Xin chào, tôi là Luân! Sinh viên ngành Hệ thống Thông tin đam mê truy xuất thông tin, phát triển Backend và ứng dụng AI.",
+      heroIntro: "Xin chào, tôi là Luân! Sinh viên ngành Hệ thống Thông tin trường Đại Học Công Nghệ Thông Tin, tôi thích công nghệ, viết code, âm nhạc và nhiếp ảnh",
       viewProjectsBtn: "Xem dự án",
-      downloadResumeBtn: "Tải CV",
       githubBtn: "GitHub",
       emailBtn: "Email"
     },
     about: {
       sectionTag: "Giới thiệu",
-      title: "Hành trình & Định hướng kỹ thuật",
+      title: "Tôi là ai",
       whoIAmTitle: "Tôi là ai",
-      bio: "Tôi là sinh viên ngành Hệ thống Thông tin tại Trường Đại học Công nghệ Thông tin (ĐHQG-HCM) yêu thích xây dựng phần mềm thực tiễn hướng dữ liệu. Định hướng chính của tôi là phát triển Backend, hệ thống truy xuất thông tin và AI ứng dụng. Tôi thích biến các bài toán phức tạp—như tìm kiếm điều khoản luật lao động bằng ngôn ngữ tự nhiên hay xử lý quy trình thương mại điện tử—thành ứng dụng sạch, có thể tái lập và có API thiết kế chuẩn xác. Tôi rất mong muốn gia nhập đội ngũ thực tập để học hỏi, hợp tác và đóng góp vào sản phẩm thực tế.",
+      bio: "Mình hiện tại đang là sinh viên của Trường Đại học Công nghệ Thông tin (UIT), công nghệ chính là niềm đam mê của mình. Chuyên ngành của mình là Hệ thống Thông tin và mình đã có niềm đam mê rất lớn với lĩnh vực này từ năm lớp 10. Mình đang tìm kiếm cơ hội thực tập để được học hỏi trong môi trường kỹ thuật thực tế, đồng thời đóng góp bằng những kỹ năng và kinh nghiệm đã tích lũy từ các dự án cá nhân. Ngoài đam mê công nghệ, mình còn có hứng thú với nhiếp ảnh, nhất là ảnh thiên nhiên.",
       coreInterestLabel: "Lĩnh vực chính",
-      coreInterestValue: "Hệ thống Backend & Tìm kiếm IR",
-      mindsetLabel: "Tư duy làm việc",
-      mindsetValue: "Thực hành dự án & Tái lập tốt",
-      practicalTitle: "Phát triển thực tiễn",
-      practicalSubtitle: "Xây dựng phần mềm giải quyết công việc thực tế",
-      practicalDesc: "Tôi tập trung vào thiết kế API sạch, cơ sở dữ liệu chuẩn hóa và kiểm thử tin cậy thay vì những phức tạp không cần thiết.",
-      academicTitle: "Nền tảng học thuật",
-      collaborationTitle: "Học hỏi & Làm việc nhóm",
-      collaborationSubtitle: "Sẵn sàng cho vị trí thực tập",
-      collaborationDesc: "Luôn sẵn sàng học hỏi từ các kỹ sư giàu kinh nghiệm, tiếp thu phản hồi và đóng góp hiệu quả cho các dự án chung."
+      coreInterestValue: "Hệ thống dữ liệu, AI & Backend",
+      mindsetLabel: "Mục tiêu hiện tại",
+      mindsetValue: "Tìm kiếm cơ hội thực tập"
+    },
+    photography: {
+      sectionTag: "Ngoài công nghệ",
+      title: "Qua ống kính của mình",
+      description: "Một góc nhỏ dành cho những khoảnh khắc thiên nhiên mình ghi lại trong thời gian rảnh."
     },
     currently: {
       sectionTag: "Định hướng",
@@ -266,6 +259,22 @@ export const portfolioContent = {
       techStack: "Công nghệ",
       viewGithub: "Xem GitHub",
       items: [
+        {
+          id: "big-data-healthcare",
+          name: "Big Data Healthcare Streaming Pipeline",
+          description: "Nền tảng nghiên cứu chạy local bằng Docker, phát lại dữ liệu Fitbit/SEMA qua Kafka, xử lý micro-batch bằng Spark Structured Streaming theo kiến trúc Bronze–Silver–Gold, phục vụ phân tích qua PostgreSQL/Grafana và hỗ trợ thí nghiệm Spark MLlib.",
+          githubUrl: "https://github.com/dustin-dinh/big-data-healthcare-streaming-pipeline",
+          tags: [
+            "PySpark",
+            "Kafka",
+            "Spark Streaming",
+            "Spark MLlib",
+            "PostgreSQL",
+            "Grafana",
+            "Airflow",
+            "Docker"
+          ]
+        },
         {
           id: "vietnamese-legal-search",
           name: "Vietnamese Legal Semantic Search Engine",
@@ -323,6 +332,7 @@ export const portfolioContent = {
             "Python",
             "SQL",
             "JavaScript",
+            "PySpark",
             "pandas & NumPy",
             "scikit-learn",
             "Xử lý JSON / CSV",
@@ -355,28 +365,14 @@ export const portfolioContent = {
           skills: [
             "Git & GitHub",
             "Docker",
+            "Apache Kafka",
+            "Apache Airflow",
             "Pytest & Ruff",
             "Linux CLI",
             "VS Code & DBeaver",
             "Artifact versioning"
           ]
         }
-      ]
-    },
-    education: {
-      sectionTag: "Nền tảng học thuật",
-      title: "Học vấn & Bằng cấp",
-      institution: "Trường Đại học Công nghệ Thông tin - ĐHQG-HCM",
-      degree: "Chương trình Cử nhân ngành Hệ thống Thông tin",
-      major: "Hệ thống Thông tin",
-      period: "2023–2026",
-      englishLevel: "TOEIC 700 / Tương đương B2",
-      courseworkTitle: "Môn học tiêu biểu",
-      coursework: [
-        "Cơ sở dữ liệu",
-        "Phát triển ứng dụng Web",
-        "Lập trình hướng đối tượng",
-        "Công nghệ phần mềm"
       ]
     },
     contact: {
@@ -387,7 +383,6 @@ export const portfolioContent = {
       viewGithub: "Xem GitHub",
       visitFacebook: "Xem Facebook",
       chatZalo: "Nhắn tin qua Zalo",
-      downloadResume: "Tải CV",
       emailSubject: "Cơ hội thực tập dành cho Đinh Nhật Luân",
       closingMsg: "Tôi luôn sẵn sàng trao đổi về cơ hội thực tập, dự án công nghệ hoặc những ý tưởng có thể cùng nhau phát triển.",
       facebookAria: "Ghé thăm Facebook của Đinh Nhật Luân",

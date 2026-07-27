@@ -31,12 +31,21 @@ export const metadata: Metadata = {
     siteName: "Dinh Nhat Luan Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Dinh Nhat Luan — Data Systems, AI and Backend Portfolio",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dinh Nhat Luan | AI Engineer Intern",
     description:
       "Portfolio of Dinh Nhat Luan, an Information Systems student focused on information retrieval, AI engineering, backend development, and data-driven applications.",
+    images: ["/og.png"],
   },
   robots: {
     index: true,
@@ -54,7 +63,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth h-full antialiased">
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 font-sans selection:bg-blue-100 selection:text-blue-900">
+      <body className="min-h-full flex flex-col bg-[#37353E] text-[#D3DAD9] font-sans selection:bg-[#715A5A] selection:text-white">
         {children}
         <Analytics />
         <SpeedInsights />

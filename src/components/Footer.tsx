@@ -9,59 +9,44 @@ export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-slate-100 border-t border-slate-200 py-10">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600 font-medium">
-        
-        {/* Left: Copyright */}
-        <div className="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-left">
+    <footer className="border-t border-[#D3DAD9]/10 bg-[#37353E] py-10">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-xs font-medium text-[#AEB4B3] sm:flex-row sm:px-6 lg:px-8">
+        <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
           <div className="flex items-center gap-1.5">
             <span>© {new Date().getFullYear()} {personalInfo.name}. Built with</span>
-            <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" />
+            <Heart className="h-3.5 w-3.5 fill-[#A98A8A] text-[#A98A8A]" />
             <span>in HCMC.</span>
           </div>
-          <span className="hidden sm:inline text-slate-300">•</span>
-          <span className="text-slate-500">{t.lastUpdated}</span>
+          <span className="hidden text-[#D3DAD9]/20 sm:inline">•</span>
+          <span>{t.lastUpdated}</span>
         </div>
 
-        {/* Center: Social links */}
         <div className="flex items-center gap-3">
-          <a
-            href={personalInfo.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:text-slate-900 transition-colors shadow-2xs"
-            aria-label="GitHub"
-          >
-            <GithubIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={personalInfo.facebook}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:text-blue-600 transition-colors shadow-2xs"
-            aria-label="Facebook"
-          >
-            <FacebookIcon className="w-4 h-4" />
-          </a>
-          <a
-            href={personalInfo.zaloUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-1.5 rounded-md bg-white border border-slate-200 text-slate-600 hover:text-blue-500 transition-colors shadow-2xs"
-            aria-label="Zalo"
-          >
-            <ZaloIcon className="w-4 h-4" />
-          </a>
+          {[
+            { label: "GitHub", href: personalInfo.github, icon: GithubIcon },
+            { label: "Facebook", href: personalInfo.facebook, icon: FacebookIcon },
+            { label: "Zalo", href: personalInfo.zaloUrl, icon: ZaloIcon },
+          ].map(({ label, href, icon: Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="rounded-md border border-[#D3DAD9]/12 bg-[#44444E] p-1.5 text-[#D3DAD9] transition-colors hover:border-[#A98A8A] hover:text-[#A98A8A]"
+              aria-label={label}
+            >
+              <Icon className="h-4 w-4" />
+            </a>
+          ))}
         </div>
 
-        {/* Right: Back to top */}
         <a
           href="#hero"
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-slate-700 hover:text-blue-600 hover:border-slate-300 transition-colors shadow-2xs"
+          className="inline-flex items-center gap-1.5 rounded-lg border border-[#D3DAD9]/12 bg-[#44444E] px-3 py-1.5 text-[#D3DAD9] transition-colors hover:border-[#A98A8A] hover:text-[#A98A8A]"
           aria-label="Back to top"
         >
           <span>{t.footer.backToTop}</span>
-          <ArrowUp className="w-3.5 h-3.5" />
+          <ArrowUp className="h-3.5 w-3.5" />
         </a>
       </div>
     </footer>

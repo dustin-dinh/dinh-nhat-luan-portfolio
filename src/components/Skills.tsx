@@ -3,58 +3,62 @@
 import { useLanguage } from "@/context/LanguageContext";
 import { Brain, Code2, Server, Layout, Wrench } from "lucide-react";
 
-const categoryIcons = [
-  Brain,
-  Code2,
-  Server,
-  Layout,
-  Wrench
-];
+const categoryIcons = [Brain, Code2, Server, Layout, Wrench];
+const highlightedSkills = new Set([
+  "Hybrid retrieval",
+  "Semantic search",
+  "PySpark",
+  "Data pipelines",
+  "Apache Kafka",
+]);
 
 export default function Skills() {
   const { t } = useLanguage();
 
   return (
-    <section id="skills" className="py-20 bg-white border-y border-slate-200/80">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700 uppercase tracking-wider">
+    <section id="skills" className="border-y border-[#D3DAD9]/10 bg-[#44444E] py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-md border border-[#A98A8A]/30 bg-[#715A5A]/25 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#E5D5D5]">
             {t.skills.sectionTag}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {t.skills.title}
           </h2>
-          <p className="text-slate-600 text-base max-w-2xl">
-            {t.skills.subtitle}
-          </p>
+          <p className="max-w-2xl text-base text-[#D3DAD9]">{t.skills.subtitle}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {t.skills.categories.map((category, idx) => {
-            const IconComponent = categoryIcons[idx % categoryIcons.length];
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {t.skills.categories.map((category, index) => {
+            const Icon = categoryIcons[index % categoryIcons.length];
             return (
               <div
                 key={category.title}
-                className="bg-slate-50 border border-slate-200 p-6 rounded-2xl space-y-4 shadow-xs hover:border-slate-300 transition-colors"
+                className="space-y-4 rounded-2xl border border-[#D3DAD9]/12 bg-[#37353E] p-6 shadow-lg shadow-black/10 transition-colors hover:border-[#A98A8A]/50"
               >
                 <div className="flex items-center gap-3">
-                  <div className="p-2.5 rounded-xl bg-white border border-slate-200 text-blue-600 shadow-xs">
-                    <IconComponent className="w-5 h-5" />
+                  <div className="rounded-xl border border-[#A98A8A]/30 bg-[#715A5A]/25 p-2.5 text-[#A98A8A]">
+                    <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="text-base font-bold text-slate-900">
-                    {category.title}
-                  </h3>
+                  <h3 className="text-base font-bold text-white">{category.title}</h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2 pt-1">
-                  {category.skills.map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1 rounded-lg bg-white border border-slate-200 text-slate-700 text-xs font-medium hover:border-blue-300 hover:text-blue-700 transition-colors shadow-2xs"
-                    >
-                      {skill}
-                    </span>
-                  ))}
+                  {category.skills.map((skill) => {
+                    const highlighted = highlightedSkills.has(skill);
+                    return (
+                      <span
+                        key={skill}
+                        className={
+                          highlighted
+                            ? "rounded-lg border border-[#A98A8A]/35 bg-[#715A5A]/30 px-3 py-1 text-xs font-semibold text-[#E5D5D5]"
+                            : "rounded-lg border border-[#D3DAD9]/12 bg-[#44444E] px-3 py-1 text-xs font-medium text-[#D3DAD9]"
+                        }
+                      >
+                        {skill}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             );

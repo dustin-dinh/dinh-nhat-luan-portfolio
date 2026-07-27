@@ -5,21 +5,19 @@ import About from "@/components/About";
 import Currently from "@/components/Currently";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
-import Education from "@/components/Education";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-blue-100 selection:text-blue-900">
+      <div className="min-h-screen flex flex-col bg-[#37353E] text-[#D3DAD9] selection:bg-[#715A5A] selection:text-white">
         <Navbar />
         <main className="flex-grow">
           <Hero />
           <Projects />
           <Skills />
           <About />
-          <Education />
           <Currently />
           <Contact />
         </main>

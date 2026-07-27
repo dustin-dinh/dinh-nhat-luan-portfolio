@@ -8,22 +8,20 @@ export default function Projects() {
   const { t } = useLanguage();
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-3 mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700 uppercase tracking-wider">
-            <FolderCode className="w-3.5 h-3.5" />
+    <section id="projects" className="bg-[#37353E] py-20">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-12 space-y-3">
+          <div className="inline-flex items-center gap-2 rounded-md border border-[#A98A8A]/30 bg-[#715A5A]/25 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#E5D5D5]">
+            <FolderCode className="h-3.5 w-3.5" />
             {t.projects.sectionTag}
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
+          <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {t.projects.title}
           </h2>
-          <p className="text-slate-600 text-base max-w-2xl">
-            {t.projects.subtitle}
-          </p>
+          <p className="max-w-2xl text-base text-[#D3DAD9]">{t.projects.subtitle}</p>
         </div>
 
-        <div className="project-grid grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {t.projects.items.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

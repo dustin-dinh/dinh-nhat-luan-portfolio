@@ -9,33 +9,29 @@ export default function ProjectCard({ project }: { project: ProjectContent }) {
   const { t } = useLanguage();
 
   return (
-    <article className="project-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/5 sm:p-8">
-      <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-400 transition-transform duration-500 group-hover:scale-x-100" />
+    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1.5 hover:border-[#715A5A] hover:bg-[#4B4B56] sm:p-7">
+      <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#715A5A] transition-transform duration-500 group-hover:scale-x-100" />
 
       <div className="flex flex-1 flex-col">
-        <div className="mb-6 flex items-start justify-between gap-4">
-          <span className="font-mono text-xs font-bold tracking-widest text-blue-600">
+        <div className="mb-5 flex items-start justify-between gap-4">
+          <span className="font-mono text-xs font-bold tracking-widest text-[#A98A8A]">
             /{project.id}
           </span>
-          <ArrowUpRight className="h-5 w-5 text-slate-300 transition-[transform,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-600" />
+          <ArrowUpRight className="h-5 w-5 text-[#AEB4B3] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
         </div>
 
-        <h3 className="text-2xl font-bold tracking-tight text-slate-950 transition-colors group-hover:text-blue-700 sm:text-3xl">
-          {project.name}
-        </h3>
-        <p className="mt-4 flex-1 text-sm leading-7 text-slate-600 sm:text-base">
-          {project.description}
-        </p>
+        <h3 className="text-2xl font-bold tracking-tight text-white">{project.name}</h3>
+        <p className="mt-4 flex-1 text-sm leading-7 text-[#D3DAD9]">{project.description}</p>
 
-        <div className="mt-7 border-t border-slate-100 pt-5">
-          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+        <div className="mt-7 border-t border-[#D3DAD9]/10 pt-5">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-[#AEB4B3]">
             {t.projects.techStack}
           </p>
           <ul className="flex flex-wrap gap-2" aria-label={t.projects.techStack}>
             {project.tags.map((tag) => (
               <li
                 key={tag}
-                className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 transition-colors group-hover:border-blue-100 group-hover:bg-blue-50/70 group-hover:text-blue-700"
+                className="rounded-full border border-[#A98A8A]/35 bg-[#715A5A]/30 px-3 py-1 text-xs font-semibold text-[#E5D5D5]"
               >
                 {tag}
               </li>
@@ -48,7 +44,7 @@ export default function ProjectCard({ project }: { project: ProjectContent }) {
         href={project.githubUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className="mt-7 inline-flex w-fit items-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-xs font-bold text-white transition-[transform,background-color] hover:bg-blue-700 active:scale-[0.98]"
+        className="mt-7 inline-flex w-fit items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
       >
         <GithubIcon className="h-4 w-4" />
         {t.projects.viewGithub}
