@@ -1,169 +1,59 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { ProjectContent } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import { ExternalLink, ChevronDown, ChevronUp, CheckCircle2, Layers, Code2 } from "lucide-react";
 import { GithubIcon } from "@/components/BrandIcons";
 
-interface ProjectCardProps {
-  project: ProjectContent;
-}
-
-export default function ProjectCard({ project }: ProjectCardProps) {
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [imageError, setImageError] = useState(false);
+export default function ProjectCard({ project }: { project: ProjectContent }) {
   const { t } = useLanguage();
 
   return (
-    <article className="bg-white border border-slate-200/90 hover:border-slate-300 rounded-2xl p-6 sm:p-8 transition-all duration-200 shadow-xs hover:shadow-md flex flex-col justify-between group">
-      <div className="space-y-6">
-        
-        {/* Category & Status Labels */}
-        <div className="flex flex-wrap items-center justify-between gap-2">
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-blue-50 border border-blue-100 text-xs font-semibold text-blue-700">
-            <Layers className="w-3.5 h-3.5" />
-            {project.category}
-          </span>
+    <article className="project-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xs transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl hover:shadow-blue-950/5 sm:p-8">
+      <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-blue-600 via-cyan-500 to-emerald-400 transition-transform duration-500 group-hover:scale-x-100" />
 
-          <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-emerald-50 border border-emerald-200/80 text-xs font-medium text-emerald-700">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            {project.statusLabel}
+      <div className="flex flex-1 flex-col">
+        <div className="mb-6 flex items-start justify-between gap-4">
+          <span className="font-mono text-xs font-bold tracking-widest text-blue-600">
+            /{project.id}
           </span>
+          <ArrowUpRight className="h-5 w-5 text-slate-300 transition-[transform,color] duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-blue-600" />
         </div>
 
-        {/* Project Name */}
-        <h3 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight group-hover:text-blue-600 transition-colors">
+        <h3 className="text-2xl font-bold tracking-tight text-slate-950 transition-colors group-hover:text-blue-700 sm:text-3xl">
           {project.name}
         </h3>
-
-        {/* 16:9 Project Image or Tasteful Preview Placeholder */}
-        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-slate-200 bg-slate-100 shadow-2xs">
-          {!imageError ? (
-            <Image
-              src={project.imagePath}
-              alt={project.imageAlt}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-103"
-              onError={() => setImageError(true)}
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
-            />
-          ) : (
-            /* Tasteful neutral preview placeholder when real screenshot file is not added yet */
-            <div className="w-full h-full flex flex-col items-center justify-center p-6 bg-gradient-to-br from-slate-50 via-slate-100 to-blue-50/40 text-center space-y-3">
-              <div className="p-3 rounded-2xl bg-white border border-slate-200 text-blue-600 shadow-2xs">
-                <Code2 className="w-8 h-8" />
-              </div>
-              <div className="space-y-1 max-w-sm">
-                <p className="text-sm font-bold text-slate-800">{project.name}</p>
-                <p className="text-xs text-slate-500">Project Interface Preview</p>
-              </div>
-              <span className="text-[11px] font-semibold text-slate-400 border border-slate-200 bg-white/80 px-2.5 py-1 rounded-full">
-                Add image to {project.imagePath}
-              </span>
-            </div>
-          )}
-        </div>
-
-        {/* Short Human Description */}
-        <p className="text-slate-600 text-base leading-relaxed">
+        <p className="mt-4 flex-1 text-sm leading-7 text-slate-600 sm:text-base">
           {project.description}
         </p>
 
-        {/* Key Highlights (Clean List) */}
-        <div className="space-y-3 bg-slate-50/80 border border-slate-200/80 rounded-xl p-4 sm:p-5">
-          <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">
-            {t.projects.viewHighlights}
-          </h4>
-          <ul className="space-y-2.5">
-            {project.keyHighlights.map((highlight, index) => (
-              <li key={index} className="flex items-start gap-2.5 text-sm text-slate-700">
-                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                <span className="leading-snug">{highlight}</span>
+        <div className="mt-7 border-t border-slate-100 pt-5">
+          <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.16em] text-slate-400">
+            {t.projects.techStack}
+          </p>
+          <ul className="flex flex-wrap gap-2" aria-label={t.projects.techStack}>
+            {project.tags.map((tag) => (
+              <li
+                key={tag}
+                className="rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-600 transition-colors group-hover:border-blue-100 group-hover:bg-blue-50/70 group-hover:text-blue-700"
+              >
+                {tag}
               </li>
             ))}
           </ul>
         </div>
-
-        {/* Expandable Technical Details */}
-        {project.allDetails && project.allDetails.length > 0 && (
-          <div className="pt-1">
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-600 hover:text-blue-700 transition-colors py-1 focus:outline-none"
-              aria-expanded={isExpanded}
-            >
-              <span>{isExpanded ? t.projects.hideDetailsBtn : `${t.projects.moreDetailsBtn} (${project.allDetails.length})`}</span>
-              {isExpanded ? (
-                <ChevronUp className="w-4 h-4" />
-              ) : (
-                <ChevronDown className="w-4 h-4" />
-              )}
-            </button>
-
-            {isExpanded && (
-              <div className="mt-3 pt-3 border-t border-slate-200 space-y-2 animate-in fade-in duration-200">
-                <h5 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                  {t.projects.fullSpecsTitle}
-                </h5>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs text-slate-600">
-                  {project.allDetails.map((detail, idx) => (
-                    <li key={idx} className="flex items-start gap-2 bg-slate-100/60 p-2.5 rounded-lg border border-slate-200/60">
-                      <span className="text-blue-600 font-bold">•</span>
-                      <span className="leading-snug">{detail}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Technology Tags */}
-        <div className="space-y-2 pt-1">
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200 text-xs font-medium"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
       </div>
 
-      {/* Card Action Buttons */}
-      <div className="pt-6 mt-6 border-t border-slate-200/80 flex flex-wrap items-center gap-3">
-        <a
-          href={project.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs transition-all active:scale-[0.98]"
-        >
-          <GithubIcon className="w-4 h-4" />
-          <span>{t.projects.viewGithub}</span>
-        </a>
-
-        {project.demoUrl && project.demoUrl !== "#" ? (
-          <a
-            href={project.demoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 text-xs font-semibold transition-all active:scale-[0.98]"
-          >
-            <ExternalLink className="w-4 h-4" />
-            <span>{t.projects.liveDemo}</span>
-          </a>
-        ) : (
-          <span className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl bg-slate-100 text-slate-500 border border-slate-200 text-xs font-medium cursor-default">
-            <ExternalLink className="w-4 h-4 opacity-50" />
-            <span>{t.projects.demoComingSoon}</span>
-          </span>
-        )}
-      </div>
+      <a
+        href={project.githubUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-7 inline-flex w-fit items-center gap-2 rounded-xl bg-slate-950 px-4 py-2.5 text-xs font-bold text-white transition-[transform,background-color] hover:bg-blue-700 active:scale-[0.98]"
+      >
+        <GithubIcon className="h-4 w-4" />
+        {t.projects.viewGithub}
+        <ArrowUpRight className="h-3.5 w-3.5" />
+      </a>
     </article>
   );
 }

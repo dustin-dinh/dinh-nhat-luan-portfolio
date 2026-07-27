@@ -13,17 +13,87 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   overflow-x: hidden;
-  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-/* Light warm background grid pattern */
 .bg-light-grid {
   background-size: 32px 32px;
-  background-image: 
+  background-image:
     radial-gradient(circle, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
 }
 
-/* Custom scrollbar styling */
+main > section:not(#hero) {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 800px;
+}
+
+.hero-copy {
+  animation: hero-enter 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-portrait {
+  animation: hero-enter 800ms 100ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero-orb {
+  animation: orb-drift 9s ease-in-out infinite alternate;
+}
+
+.hero-orb-teal {
+  animation-delay: -4s;
+  animation-direction: alternate-reverse;
+}
+
+.mobile-menu-enter {
+  animation: menu-enter 180ms ease-out both;
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@keyframes orb-drift {
+  to {
+    transform: translate3d(24px, 18px, 0) scale(1.08);
+  }
+}
+
+@keyframes menu-enter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  main > section:not(#hero) > div {
+    animation: section-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 5% entry 28%;
+  }
+
+  @keyframes section-reveal {
+    from {
+      opacity: 0.35;
+      transform: translateY(24px);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

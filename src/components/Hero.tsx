@@ -15,14 +15,14 @@ export default function Hero() {
       className="relative pt-32 pb-20 md:pt-36 md:pb-28 overflow-hidden bg-light-grid bg-slate-50"
     >
       {/* Soft background accents */}
-      <div className="absolute top-12 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-100/60 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-28 right-10 w-80 h-80 bg-teal-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="hero-orb hero-orb-blue absolute left-1/2 top-12 h-96 w-96 -translate-x-1/2 rounded-full bg-blue-100/60 blur-3xl pointer-events-none" />
+      <div className="hero-orb hero-orb-teal absolute right-10 top-28 h-80 w-80 rounded-full bg-teal-100/40 blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Text Content Area */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="hero-copy lg:col-span-7 space-y-6">
             {/* Availability Badge */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 text-xs font-semibold text-emerald-800 shadow-xs">
               <span className="relative flex h-2 w-2">
@@ -99,15 +99,16 @@ export default function Hero() {
           </div>
 
           {/* Real Personal Profile Image Frame */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="hero-portrait lg:col-span-5 flex justify-center lg:justify-end">
             <div className="relative w-full max-w-[320px] aspect-[4/5] rounded-3xl overflow-hidden shadow-xl border border-slate-200/90 bg-slate-100 group">
               <Image
                 src="/profile.jpg"
                 alt="Portrait of Dinh Nhat Luan"
                 fill
                 priority
+                quality={75}
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 100vw, 320px"
+                sizes="320px"
               />
             </div>
           </div>

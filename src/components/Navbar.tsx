@@ -1,40 +1,25 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Menu, X, FileDown, Code2 } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { t } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const navItems = [
-    { label: t.navigation.about, href: "#about" },
     { label: t.navigation.projects, href: "#projects" },
     { label: t.navigation.skills, href: "#skills" },
+    { label: t.navigation.about, href: "#about" },
     { label: t.navigation.education, href: "#education" },
     { label: t.navigation.contact, href: "#contact" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-xs py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/70 bg-white/80 py-3 shadow-xs backdrop-blur-xl">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand logo */}
         <a
@@ -88,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-4 shadow-lg animate-in fade-in slide-in-from-top-2 duration-200">
+        <div className="mobile-menu-enter md:hidden border-b border-slate-200 bg-white px-4 pb-6 pt-3 shadow-lg">
           <div className="flex flex-col space-y-1">
             {navItems.map((item) => (
               <a

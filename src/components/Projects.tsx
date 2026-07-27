@@ -23,7 +23,7 @@ export default function Projects() {
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="project-grid grid grid-cols-1 gap-6 lg:grid-cols-2">
           {t.projects.items.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}

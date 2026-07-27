@@ -3,16 +3,9 @@ export type Language = "en" | "vi";
 export interface ProjectContent {
   id: string;
   name: string;
-  category: string;
   description: string;
   githubUrl: string;
-  demoUrl: string;
-  statusLabel: string;
-  imagePath: string;
-  imageAlt: string;
   tags: string[];
-  keyHighlights: string[];
-  allDetails: string[];
 }
 
 export interface SkillCategoryContent {
@@ -82,25 +75,15 @@ export const portfolioContent = {
     projects: {
       sectionTag: "Portfolio Highlights",
       title: "Featured Engineering Projects",
-      subtitle: "Real-world applications focusing on information retrieval, backend APIs, and clean software architecture.",
-      viewHighlights: "Key Highlights",
-      moreDetailsBtn: "View all technical details",
-      hideDetailsBtn: "Hide detailed metrics",
-      fullSpecsTitle: "Full Technical Specifications",
+      subtitle: "A concise look at what I built, the stack behind it, and the source code.",
+      techStack: "Tech stack",
       viewGithub: "View GitHub",
-      liveDemo: "Live Demo",
-      demoComingSoon: "Demo in progress",
       items: [
         {
           id: "vietnamese-legal-search",
           name: "Vietnamese Legal Semantic Search Engine",
-          category: "Information Retrieval / NLP / Backend",
-          description: "A specialized search system helping users find relevant Vietnamese labor-law provisions using natural language queries, including accentless text and common abbreviations.",
+          description: "A hybrid information-retrieval system for finding Vietnamese labor-law provisions from natural-language queries, including accentless text and common abbreviations.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
-          demoUrl: "",
-          statusLabel: "Source available",
-          imagePath: "/projects/legal-search.webp",
-          imageAlt: "Preview of Vietnamese Legal Semantic Search Engine interface",
           tags: [
             "Python",
             "FastAPI",
@@ -110,39 +93,13 @@ export const portfolioContent = {
             "Cross-Encoder",
             "Pytest",
             "Docker"
-          ],
-          keyHighlights: [
-            "Built a hybrid search pipeline combining accented & accentless TF-IDF with Multilingual E5 embeddings.",
-            "Applied Reciprocal Rank Fusion (RRF) and Cross-Encoder reranking for high relevance.",
-            "Achieved Hit@5 of 0.90 and MRR@5 of 0.7244 on a locked 80-query evaluation set.",
-            "Exposed system via FastAPI REST endpoints and Streamlit demo interface."
-          ],
-          allDetails: [
-            "Built a retrieval-only pipeline over 220 legal articles and 228 chunks.",
-            "Combined accented and accentless TF-IDF retrieval.",
-            "Used multilingual E5 embeddings for semantic retrieval.",
-            "Applied weighted Reciprocal Rank Fusion.",
-            "Used Cross-Encoder reranking.",
-            "Returned original legal provisions with article, PDF page, and source metadata.",
-            "Achieved Hit@5 of 0.90.",
-            "Achieved MRR@5 of 0.7244 on a locked 80-query test set.",
-            "Added confidence thresholds, clarification behavior, and out-of-scope abstention.",
-            "Exposed the retrieval system using FastAPI and Streamlit.",
-            "Verified 30 out of 30 versioned artifacts.",
-            "Passed a 10 out of 10 corpus audit.",
-            "Passed 33 offline pytest cases."
           ]
         },
         {
           id: "furniture-shop-app",
           name: "Furniture Shop Web Application",
-          category: "Full-stack Web Development",
-          description: "A full-featured e-commerce platform built with a React frontend and Laravel REST API, handling customer shopping workflows, admin management, and checkout.",
+          description: "A full-stack furniture e-commerce platform covering product discovery, persistent carts, checkout, order workflows, and administration.",
           githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
-          demoUrl: "",
-          statusLabel: "Source available",
-          imagePath: "/projects/furniture-shop.webp",
-          imageAlt: "Preview of Furniture Shop Web Application storefront",
           tags: [
             "React 19",
             "Laravel 12",
@@ -152,32 +109,6 @@ export const portfolioContent = {
             "Sanctum",
             "Stripe",
             "Vite"
-          ],
-          keyHighlights: [
-            "Decoupled full-stack architecture with React 19 frontend and Laravel 12 REST API.",
-            "Complete customer experience: product catalog filters, persistent cart, and Stripe/COD checkout.",
-            "Admin portal for managing products, categories, users, orders, and sales reporting.",
-            "Normalized MySQL database schema with 14 controllers and 40 REST route declarations."
-          ],
-          allDetails: [
-            "React 19 frontend.",
-            "Laravel 12 REST API.",
-            "MySQL relational database.",
-            "Laravel Sanctum authentication.",
-            "Customer and administrator workflows.",
-            "Filtered and paginated product catalog.",
-            "Persistent shopping cart.",
-            "COD and Stripe checkout.",
-            "Order history.",
-            "Administration for products, categories, users, orders, and shipping charges.",
-            "Dashboard reporting.",
-            "Temporary image uploads with large and small image processing.",
-            "14 controllers.",
-            "9 Eloquent models.",
-            "14 migrations.",
-            "56 JSX files.",
-            "Approximately 40 API route declarations.",
-            "All 64 PHP files passed syntax checks."
           ]
         }
       ]
@@ -331,25 +262,15 @@ export const portfolioContent = {
     projects: {
       sectionTag: "Dự án tiêu biểu",
       title: "Dự án nổi bật",
-      subtitle: "Các ứng dụng thực tế tập trung vào truy xuất thông tin, API backend và kiến trúc phần mềm chuẩn mực.",
-      viewHighlights: "Điểm nổi bật",
-      moreDetailsBtn: "Xem đầy đủ chi tiết kỹ thuật",
-      hideDetailsBtn: "Ẩn chi tiết thông số",
-      fullSpecsTitle: "Thông số kỹ thuật chi tiết",
+      subtitle: "Tóm tắt ngắn gọn về sản phẩm, công nghệ sử dụng và mã nguồn của từng dự án.",
+      techStack: "Công nghệ",
       viewGithub: "Xem GitHub",
-      liveDemo: "Bản demo",
-      demoComingSoon: "Đang hoàn thiện demo",
       items: [
         {
           id: "vietnamese-legal-search",
           name: "Vietnamese Legal Semantic Search Engine",
-          category: "Truy xuất thông tin / NLP / Backend",
-          description: "Hệ thống truy xuất thông tin pháp lý giúp người dùng tra cứu các điều khoản Luật Lao động Việt Nam bằng câu hỏi tự nhiên, bao gồm văn bản không dấu và từ viết tắt.",
+          description: "Hệ thống truy xuất lai giúp tìm điều khoản Luật Lao động Việt Nam bằng câu hỏi tự nhiên, hỗ trợ cả văn bản không dấu và từ viết tắt.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
-          demoUrl: "",
-          statusLabel: "Đã có mã nguồn",
-          imagePath: "/projects/legal-search.webp",
-          imageAlt: "Ảnh chụp giao diện Hệ thống tìm kiếm pháp luật Việt Nam",
           tags: [
             "Python",
             "FastAPI",
@@ -359,39 +280,13 @@ export const portfolioContent = {
             "Cross-Encoder",
             "Pytest",
             "Docker"
-          ],
-          keyHighlights: [
-            "Xây dựng pipeline tìm kiếm lai kết hợp TF-IDF có dấu & không dấu với Multilingual E5 embeddings.",
-            "Áp dụng Reciprocal Rank Fusion (RRF) và Cross-Encoder reranking để tối ưu độ liên quan.",
-            "Đạt Hit@5 0.90 và MRR@5 0.7244 trên bộ kiểm thử 80 câu hỏi khóa cố định.",
-            "Cung cấp REST API qua FastAPI và giao diện thử nghiệm qua Streamlit."
-          ],
-          allDetails: [
-            "Xây dựng pipeline chỉ truy xuất trên 220 điều luật và 228 đoạn dữ liệu (chunks).",
-            "Kết hợp truy xuất TF-IDF có dấu và không dấu.",
-            "Sử dụng Multilingual E5 embeddings cho truy xuất ngữ nghĩa.",
-            "Áp dụng Reciprocal Rank Fusion có trọng số.",
-            "Sử dụng Cross-Encoder reranking.",
-            "Trả về các điều khoản luật gốc kèm metadata điều, trang PDF và nguồn.",
-            "Đạt Hit@5 là 0.90.",
-            "Đạt MRR@5 là 0.7244 trên bộ kiểm thử 80 câu hỏi cố định.",
-            "Thêm ngưỡng tin cậy, hành vi làm rõ và từ chối ngoài phạm vi.",
-            "Cung cấp hệ thống truy xuất bằng FastAPI và Streamlit.",
-            "Xác minh 30/30 artifact phiên bản.",
-            "Vượt qua kiểm tra 10/10 dữ liệu corpus.",
-            "Đạt 33 test case offline với Pytest."
           ]
         },
         {
           id: "furniture-shop-app",
           name: "Furniture Shop Web Application",
-          category: "Phát triển Web Full-stack",
-          description: "Nền tảng thương mại điện tử nội thất với frontend React 19 tách biệt và Laravel 12 REST API, xử lý trọn vẹn quy trình mua hàng, quản trị và thanh toán.",
+          description: "Nền tảng thương mại điện tử nội thất full-stack hỗ trợ tìm sản phẩm, giỏ hàng, thanh toán, quản lý đơn hàng và trang quản trị.",
           githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
-          demoUrl: "",
-          statusLabel: "Đã có mã nguồn",
-          imagePath: "/projects/furniture-shop.webp",
-          imageAlt: "Ảnh chụp giao diện Ứng dụng web cửa hàng nội thất",
           tags: [
             "React 19",
             "Laravel 12",
@@ -401,32 +296,6 @@ export const portfolioContent = {
             "Sanctum",
             "Stripe",
             "Vite"
-          ],
-          keyHighlights: [
-            "Kiến trúc full-stack tách biệt với frontend React 19 và Laravel 12 REST API.",
-            "Trải nghiệm khách hàng hoàn chỉnh: lọc sản phẩm, giỏ hàng lưu trữ và thanh toán Stripe/COD.",
-            "Trang quản trị cho phép quản lý sản phẩm, danh mục, người dùng, đơn hàng và báo cáo doanh số.",
-            "Cơ sở dữ liệu MySQL chuẩn hóa với 14 controller và khoảng 40 khai báo REST route."
-          ],
-          allDetails: [
-            "Frontend React 19.",
-            "Laravel 12 REST API.",
-            "Cơ sở dữ liệu quan hệ MySQL.",
-            "Xác thực Laravel Sanctum.",
-            "Quy trình làm việc cho khách hàng và quản trị viên.",
-            "Danh mục sản phẩm có bộ lọc và phân trang.",
-            "Giỏ hàng lưu trữ bền vững.",
-            "Thanh toán COD và Stripe.",
-            "Lịch sử đơn hàng.",
-            "Quản trị sản phẩm, danh mục, người dùng, đơn hàng và phí vận chuyển.",
-            "Báo cáo bảng điều khiển.",
-            "Tải lên ảnh tạm thời với xử lý ảnh lớn và nhỏ.",
-            "14 controller.",
-            "9 model Eloquent.",
-            "14 migration.",
-            "56 tệp JSX.",
-            "Khoảng 40 khai báo route API.",
-            "Tất cả 64 tệp PHP đều đạt kiểm tra cú pháp."
           ]
         }
       ]

@@ -16,11 +16,11 @@ export default function Home() {
         <Navbar />
         <main className="flex-grow">
           <Hero />
-          <About />
-          <Currently />
           <Projects />
           <Skills />
+          <About />
           <Education />
+          <Currently />
           <Contact />
         </main>
         <Footer />
