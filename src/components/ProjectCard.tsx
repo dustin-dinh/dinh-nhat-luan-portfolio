@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Globe2 } from "lucide-react";
 import { ProjectContent } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import { GithubIcon } from "@/components/BrandIcons";
@@ -40,16 +40,30 @@ export default function ProjectCard({ project }: { project: ProjectContent }) {
         </div>
       </div>
 
-      <a
-        href={project.githubUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="mt-7 inline-flex w-fit items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
-      >
-        <GithubIcon className="h-4 w-4" />
-        {t.projects.viewGithub}
-        <ArrowUpRight className="h-3.5 w-3.5" />
-      </a>
+      <div className="mt-7 flex flex-wrap gap-3">
+        {project.liveUrl && (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
+          >
+            <Globe2 className="h-4 w-4" />
+            {t.projects.viewDemo}
+            <ArrowUpRight className="h-3.5 w-3.5" />
+          </a>
+        )}
+        <a
+          href={project.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/20 bg-[#37353E] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:border-[#A98A8A] hover:text-[#E5D5D5]"
+        >
+          <GithubIcon className="h-4 w-4" />
+          {t.projects.viewGithub}
+          <ArrowUpRight className="h-3.5 w-3.5" />
+        </a>
+      </div>
     </article>
   );
 }

@@ -5,6 +5,7 @@ export interface ProjectContent {
   name: string;
   description: string;
   githubUrl: string;
+  liveUrl?: string;
   tags: string[];
 }
 
@@ -73,6 +74,7 @@ export const portfolioContent = {
       subtitle: "A concise look at what I built, the stack behind it, and the source code.",
       techStack: "Tech stack",
       viewGithub: "View GitHub",
+      viewDemo: "Live Demo",
       items: [
         {
           id: "big-data-healthcare",
@@ -95,6 +97,7 @@ export const portfolioContent = {
           name: "Vietnamese Legal Semantic Search Engine",
           description: "A hybrid information-retrieval system for finding Vietnamese labor-law provisions from natural-language queries, including accentless text and common abbreviations.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
+          liveUrl: "https://legalsearchdemo.vercel.app/",
           tags: [
             "Python",
             "FastAPI",
@@ -258,6 +261,7 @@ export const portfolioContent = {
       subtitle: "Tóm tắt ngắn gọn về sản phẩm, công nghệ sử dụng và mã nguồn của từng dự án.",
       techStack: "Công nghệ",
       viewGithub: "Xem GitHub",
+      viewDemo: "Xem demo",
       items: [
         {
           id: "big-data-healthcare",
@@ -280,6 +284,7 @@ export const portfolioContent = {
           name: "Vietnamese Legal Semantic Search Engine",
           description: "Hệ thống truy xuất lai giúp tìm điều khoản Luật Lao động Việt Nam bằng câu hỏi tự nhiên, hỗ trợ cả văn bản không dấu và từ viết tắt.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
+          liveUrl: "https://legalsearchdemo.vercel.app/",
           tags: [
             "Python",
             "FastAPI",
