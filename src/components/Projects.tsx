@@ -1,11 +1,17 @@
 "use client";
 
+import { useState } from "react";
+import dynamic from "next/dynamic";
 import { useLanguage } from "@/context/LanguageContext";
+import type { ProjectContent } from "@/data/portfolio";
 import ProjectCard from "./ProjectCard";
 import { FolderCode } from "lucide-react";
 
+const CaseStudyModal = dynamic(() => import("./CaseStudyModal"));
+
 export default function Projects() {
   const { t } = useLanguage();
+  const [selectedProject, setSelectedProject] = useState<ProjectContent | null>(null);
 
   return (
     <section id="projects" className="bg-[#37353E] py-20">
@@ -23,10 +29,21 @@ export default function Projects() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-3">
           {t.projects.items.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              onOpenCaseStudy={(proj) => setSelectedProject(proj)}
+            />
           ))}
         </div>
       </div>
+
+      {selectedProject && (
+        <CaseStudyModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 }

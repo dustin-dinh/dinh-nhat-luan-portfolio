@@ -134,7 +134,6 @@ export default function About() {
                     fill
                     sizes="(max-width: 1023px) 52vw, 532px"
                     className="object-cover"
-                    priority={index === 0}
                   />
                   {isCurrent && (
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#37353E]/80 to-transparent px-5 pb-4 pt-12 text-left text-sm font-semibold text-white">

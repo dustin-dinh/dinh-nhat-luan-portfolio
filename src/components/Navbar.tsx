@@ -12,6 +12,8 @@ export default function Navbar() {
   const navItems = [
     { label: t.navigation.projects, href: "#projects" },
     { label: t.navigation.skills, href: "#skills" },
+    { label: t.navigation.journey, href: "#journey" },
+    { label: t.navigation.education, href: "#education" },
     { label: t.navigation.about, href: "#about" },
     { label: t.navigation.photography, href: "#photography" },
     { label: t.navigation.contact, href: "#contact" },
@@ -34,26 +36,26 @@ export default function Navbar() {
         </a>
 
         {/* Desktop navigation */}
-        <nav className="hidden items-center gap-1 rounded-full border border-[#D3DAD9]/10 bg-[#44444E]/90 p-1 backdrop-blur-md md:flex">
+        <nav className="hidden items-center gap-1 rounded-full border border-[#D3DAD9]/10 bg-[#44444E]/90 p-1 backdrop-blur-md lg:flex">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="rounded-full px-4 py-1.5 text-sm font-medium text-[#D3DAD9] transition-all hover:bg-[#715A5A]/35 hover:text-white"
+              className="rounded-full px-3.5 py-1.5 text-xs font-medium text-[#D3DAD9] transition-all hover:bg-[#715A5A]/35 hover:text-white"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center">
+        <div className="hidden md:flex items-center gap-3">
           <LanguageSwitcher />
         </div>
 
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-lg border border-[#D3DAD9]/15 p-2 text-[#D3DAD9] transition-colors hover:bg-[#44444E] hover:text-white md:hidden"
+          className="rounded-lg border border-[#D3DAD9]/15 p-2 text-[#D3DAD9] transition-colors hover:bg-[#44444E] hover:text-white lg:hidden"
           aria-label="Toggle navigation menu"
           aria-expanded={mobileMenuOpen}
         >
@@ -63,7 +65,7 @@ export default function Navbar() {
 
       {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-enter border-b border-[#D3DAD9]/10 bg-[#37353E] px-4 pb-6 pt-3 shadow-lg md:hidden">
+        <div className="mobile-menu-enter border-b border-[#D3DAD9]/10 bg-[#37353E] px-4 pb-6 pt-3 shadow-lg lg:hidden">
           <div className="flex flex-col space-y-1">
             {navItems.map((item) => (
               <a
@@ -77,7 +79,7 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex items-center justify-end border-t border-[#D3DAD9]/10 pt-3">
+          <div className="flex items-center justify-end border-t border-[#D3DAD9]/10 pt-4 mt-2">
             <LanguageSwitcher />
           </div>
         </div>

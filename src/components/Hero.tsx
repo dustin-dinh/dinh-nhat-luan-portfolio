@@ -48,17 +48,22 @@ export default function Hero() {
               <span>{personalInfo.location}</span>
             </div>
 
-            {/* Natural warm introduction */}
-            <p className="text-base sm:text-lg text-[#D3DAD9] leading-relaxed max-w-2xl">
-              {t.hero.heroIntro}
-            </p>
+            {/* Value Statement Description & Bio */}
+            <div className="space-y-3">
+              <p className="text-lg sm:text-xl font-semibold text-white leading-snug max-w-2xl border-l-2 border-[#A98A8A] pl-3">
+                &ldquo;{t.hero.heroIntro}&rdquo;
+              </p>
+              <p className="text-sm sm:text-base text-[#D3DAD9] leading-relaxed max-w-2xl">
+                {t.hero.subIntro}
+              </p>
+            </div>
 
             {/* CTA Buttons */}
             <div className="pt-2 flex flex-wrap items-center gap-3 sm:gap-4">
-              {/* Primary CTA */}
+              {/* View Projects CTA */}
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-6 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#806767] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#806767] active:scale-[0.98]"
               >
                 <FolderGit2 className="w-4 h-4" />
                 <span>{t.hero.viewProjectsBtn}</span>
@@ -95,7 +100,7 @@ export default function Hero() {
                 src="/profile.jpg"
                 alt="Portrait of Dinh Nhat Luan"
                 fill
-                priority
+                preload
                 quality={75}
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 sizes="320px"
