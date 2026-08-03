@@ -46,7 +46,7 @@ export default function Education() {
           <div className="mt-8">
             <div className="mb-4 flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">
               <BookOpen className="h-4 w-4 text-[#A98A8A]" />
-              <span>Key Relevant Coursework & Focus Areas</span>
+              <span>{edu.courseworkLabel}</span>
             </div>
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3">
               {edu.coursework.map((course) => (

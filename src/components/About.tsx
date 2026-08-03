@@ -107,9 +107,9 @@ export default function About() {
                   type="button"
                   onClick={() => setCurrentPhoto(index)}
                   disabled={!isVisible || isCurrent}
-                  className={`absolute top-1/2 aspect-[4/3] overflow-hidden rounded-2xl border bg-[#44444E] shadow-2xl transition-[left,width,transform,opacity,filter,border-color] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  className={`group absolute top-1/2 aspect-[4/3] overflow-hidden rounded-2xl border bg-[#44444E] shadow-2xl transition-[left,width,transform,opacity,filter,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
                     isCurrent
-                      ? "z-20 border-[#D3DAD9]/20 opacity-100 blur-0"
+                      ? "z-20 border-[#D3DAD9]/20 opacity-100 blur-0 group-hover:border-[#A98A8A]/80 group-hover:shadow-[0_28px_72px_rgba(0,0,0,0.42)]"
                       : isVisible
                         ? "z-10 cursor-pointer border-[#D3DAD9]/10 opacity-40 blur-[2px] hover:opacity-65 hover:blur-[1px]"
                         : "pointer-events-none z-0 border-transparent opacity-0 blur-sm"
@@ -133,7 +133,7 @@ export default function About() {
                     alt={photo.alt}
                     fill
                     sizes="(max-width: 1023px) 52vw, 532px"
-                    className="object-cover"
+                    className={`object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isCurrent ? "group-hover:scale-105" : ""}`}
                   />
                   {isCurrent && (
                     <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#37353E]/80 to-transparent px-5 pb-4 pt-12 text-left text-sm font-semibold text-white">

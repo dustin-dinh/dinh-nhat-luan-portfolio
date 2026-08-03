@@ -39,7 +39,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
           <div className="mt-5 rounded-2xl border border-[#D3DAD9]/10 bg-[#37353E]/60 p-3.5">
             <div className="mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-[#A98A8A]">
               <BarChart3 className="h-3.5 w-3.5" />
-              <span>Key Metrics & Evidence</span>
+              <span>{t.projects.metricsLabel}</span>
             </div>
             <div className="grid grid-cols-3 gap-2 text-center">
               {project.metrics.map((m) => (
@@ -74,7 +74,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
       <div className="mt-6 flex flex-wrap gap-2.5 pt-2">
         <button
           onClick={() => onOpenCaseStudy(project)}
-          className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
+          className="motion-button inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
         >
           <BookOpen className="h-4 w-4" />
           <span>{t.projects.viewCaseStudy}</span>
@@ -85,7 +85,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-xl border border-[#A98A8A]/50 bg-transparent px-3.5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#715A5A]"
+            className="motion-button inline-flex items-center gap-1.5 rounded-xl border border-[#A98A8A]/50 bg-transparent px-3.5 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#715A5A]"
           >
             <Globe2 className="h-4 w-4 text-[#A98A8A]" />
             <span>{t.projects.viewDemo}</span>
@@ -97,7 +97,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
           href={project.githubUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-xl border border-[#D3DAD9]/20 bg-[#37353E] px-3.5 py-2.5 text-xs font-bold text-white transition-colors hover:border-[#A98A8A]"
+          className="motion-button inline-flex items-center gap-1.5 rounded-xl border border-[#D3DAD9]/20 bg-[#37353E] px-3.5 py-2.5 text-xs font-bold text-white transition-colors hover:border-[#A98A8A]"
         >
           <GithubIcon className="h-4 w-4 text-[#D3DAD9]" />
           <span>{t.projects.viewGithub}</span>

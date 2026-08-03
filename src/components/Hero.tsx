@@ -8,7 +8,7 @@ import { GithubIcon } from "@/components/BrandIcons";
 
 export default function Hero() {
   const { t } = useLanguage();
-  const mailToUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(t.contact.emailSubject)}`;
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}&su=${encodeURIComponent(t.contact.emailSubject)}`;
 
   return (
     <section
@@ -64,7 +64,7 @@ export default function Hero() {
               {/* View Projects CTA */}
               <a
                 href="#projects"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#806767] active:scale-[0.98]"
+                className="motion-button inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-5 py-3 text-sm font-bold text-white shadow-sm transition-all hover:bg-[#806767] active:scale-[0.98]"
               >
                 <FolderGit2 className="w-4 h-4" />
                 <span>{t.hero.viewProjectsBtn}</span>
@@ -75,7 +75,7 @@ export default function Hero() {
                 href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/40 bg-transparent px-4 py-3 text-sm font-medium text-[#D3DAD9] shadow-xs transition-all hover:border-[#A98A8A] hover:text-white"
+                className="motion-button inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/40 bg-transparent px-4 py-3 text-sm font-medium text-[#D3DAD9] shadow-xs transition-all hover:border-[#A98A8A] hover:text-white"
                 aria-label="GitHub Profile"
               >
                 <GithubIcon className="w-4 h-4" />
@@ -84,8 +84,10 @@ export default function Hero() {
 
               {/* Email Link */}
               <a
-                href={mailToUrl}
-                className="inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/40 bg-transparent px-4 py-3 text-sm font-medium text-[#D3DAD9] shadow-xs transition-all hover:border-[#A98A8A] hover:text-white"
+                href={gmailComposeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="motion-button inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/40 bg-transparent px-4 py-3 text-sm font-medium text-[#D3DAD9] shadow-xs transition-all hover:border-[#A98A8A] hover:text-white"
                 aria-label="Email Me"
               >
                 <Mail className="w-4 h-4" />
@@ -96,7 +98,7 @@ export default function Hero() {
 
           {/* Real Personal Profile Image Frame */}
           <div className="hero-portrait lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="group relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-3xl border border-[#D3DAD9]/15 bg-[#44444E] shadow-2xl shadow-black/25">
+            <div className="portfolio-card group relative aspect-[4/5] w-full max-w-[320px] overflow-hidden rounded-3xl border border-[#D3DAD9]/15 bg-[#44444E] shadow-2xl shadow-black/25">
               <Image
                 src="/profile.jpg"
                 alt="Portrait of Dinh Nhat Luan"

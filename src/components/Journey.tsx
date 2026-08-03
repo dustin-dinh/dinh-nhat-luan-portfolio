@@ -13,7 +13,6 @@ export default function Journey() {
           <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
             {t.journey.title}
           </h2>
-          <p className="max-w-none text-pretty text-base text-[#D3DAD9] lg:whitespace-nowrap">{t.journey.subtitle}</p>
         </div>
 
         <div className="relative border-l-2 border-[#A98A8A]/30 pl-6 sm:pl-8 space-y-10">

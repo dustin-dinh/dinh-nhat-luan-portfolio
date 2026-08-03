@@ -53,6 +53,7 @@ export interface EducationInfo {
   period: string;
   location: string;
   summary: string;
+  courseworkLabel: string;
   coursework: string[];
 }
 
@@ -105,33 +106,32 @@ export const portfolioContent = {
     },
     journey: {
       title: "My Growth Journey",
-      subtitle: "An intentional evolution from foundational Information Systems to Data Engineering and Applied AI.",
-      phaseLabel: "Phase",
+      phaseLabel: "Stage",
       steps: [
         {
           title: "Information Systems Foundation",
-          period: "2022 - 2023",
+          period: "2023 - 2024",
           subtitle: "University of Information Technology (UIT)",
           description: "Built strong foundations in database design, SQL querying, system analysis, and computer science fundamentals.",
           highlights: ["Relational Database Design", "SQL Optimization", "Data Structures & Algorithms"]
         },
         {
           title: "Full-Stack & Backend Web Development",
-          period: "2023 - 2024",
+          period: "2024 - 2025",
           subtitle: "Web Application Architecture",
           description: "Developed RESTful web applications using Laravel, React, and MySQL, focusing on web security, API design, and persistent state management.",
           highlights: ["REST APIs & Sanctum Auth", "React 19 & State Flow", "PHP Laravel 12 Architecture"]
         },
         {
           title: "Data Engineering & Streaming Pipelines",
-          period: "2024 - 2025",
+          period: "2025 - 2026",
           subtitle: "Real-Time & Micro-batch Systems",
           description: "Explored distributed data processing by creating local streaming pipelines using Apache Kafka, PySpark, and Dockerized Medallion (Bronze-Silver-Gold) architectures.",
           highlights: ["Apache Kafka Message Bus", "PySpark Structured Streaming", "Grafana & PostgreSQL Analytics"]
         },
         {
           title: "Applied AI & Information Retrieval",
-          period: "2025 - Present",
+          period: "2026 - Present",
           subtitle: "Semantic Search & Vector Systems",
           description: "Focused on solving practical search challenges using hybrid retrieval (TF-IDF + Dense Embeddings), reranking models, evaluation metrics (Hit@K, MRR), and FastAPI services.",
           highlights: ["Hybrid Search & Cross-Encoders", "FastAPI & Vector Search", "33/33 Offline Test Evaluation"]
@@ -149,6 +149,7 @@ export const portfolioContent = {
         period: "Since 2023",
         location: "Ho Chi Minh City, Vietnam",
         summary: "Specializing in information retrieval systems, advanced database administration, data warehousing, and applied machine learning.",
+        courseworkLabel: "Relevant coursework & focus areas",
         coursework: [
           "Information Retrieval & Semantic Search",
           "Advanced Database Systems",
@@ -173,10 +174,33 @@ export const portfolioContent = {
       title: "Featured Engineering Projects",
       subtitle: "Engineered with focus on measurable metrics, clean backend architecture, and problem-solving.",
       techStack: "Tech stack",
+      metricsLabel: "Key metrics & evidence",
       viewGithub: "View GitHub",
       viewDemo: "Live Demo",
       viewCaseStudy: "View Case Study",
       closeCaseStudy: "Close",
+      caseStudy: {
+        label: "Case study",
+        problemGoal: "Problem & goal",
+        problem: "Problem",
+        goal: "Goal",
+        roleUsers: "Role & users",
+        role: "My role",
+        users: "Who it helps",
+        solutionArchitecture: "Solution & architecture",
+        solution: "Approach",
+        architecture: "System flow",
+        dataProcessing: "Data flow",
+        challenges: "Challenges & trade-offs",
+        constraint: "Constraint",
+        decision: "Key decision",
+        results: "Results & evaluation",
+        evaluation: "How it was evaluated",
+        outcome: "Outcome",
+        lessons: "Lessons & next steps",
+        lessonsLearned: "What I learned",
+        nextSteps: "Next steps"
+      },
       items: [
         {
           id: "vietnamese-legal-search",
@@ -369,7 +393,6 @@ export const portfolioContent = {
       visitFacebook: "Visit Facebook",
       chatZalo: "Chat on Zalo",
       emailSubject: "Internship Opportunity for Dinh Nhat Luan",
-      emailCopied: "Email address copied. Paste it into your email app if no compose window opens.",
       closingMsg: "I am always open to discussing internship roles, engineering projects, or ideas we can build together.",
       facebookAria: "Visit Dinh Nhat Luan on Facebook",
       zaloAria: "Contact Dinh Nhat Luan on Zalo"
@@ -393,10 +416,10 @@ export const portfolioContent = {
       contact: "Liên hệ",
     },
     hero: {
-      title: "AI Engineer Intern | Lập trình viên Backend & Hệ thống truy xuất",
-      availabilityLabel: "Đang tìm kiếm cơ hội thực tập về AI, Dữ liệu và Backend",
-      heroIntro: "Tôi xây dựng các hệ thống dữ liệu thực tế và ứng dụng AI, từ pipeline luồng dữ liệu thời gian thực đến truy xuất thông tin ngữ nghĩa.",
-      subIntro: "Xin chào, tôi là Luân! Sinh viên ngành Hệ thống Thông tin trường UIT, đam mê Truy xuất thông tin, Pipeline Dữ liệu và Kỹ thuật Backend.",
+      title: "Thực tập sinh Kỹ sư AI | Backend & Truy xuất thông tin",
+      availabilityLabel: "Đang tìm cơ hội thực tập trong mảng AI, Dữ liệu và Backend",
+      heroIntro: "Mình xây dựng những hệ thống dữ liệu hữu ích và ứng dụng AI, từ pipeline thời gian thực đến tìm kiếm ngữ nghĩa.",
+      subIntro: "Chào bạn, mình là Luân, sinh viên Hệ thống Thông tin tại UIT. Mình yêu thích bài toán tìm kiếm, dữ liệu và backend.",
       viewProjectsBtn: "Xem dự án",
       githubBtn: "GitHub",
       emailBtn: "Email",
@@ -405,46 +428,45 @@ export const portfolioContent = {
       sectionTag: "Giới thiệu",
       title: "Tôi là ai",
       whoIAmTitle: "Tôi là ai",
-      bio: "Mình hiện là sinh viên Trường Đại học Công nghệ Thông tin (UIT), chuyên ngành Hệ thống Thông tin. Đam mê công nghệ của mình bắt đầu từ thời phổ thông và dần định hình thành định hướng xây dựng các pipeline xử lý dữ liệu và hệ thống truy xuất thông tin thực tế. Mình đang tìm kiếm cơ hội thực tập để rèn luyện trong môi trường kỹ thuật thực tế, học hỏi từ các anh chị đi trước và đóng góp vào các sản phẩm AI & Data thực tế.",
+      bio: "Mình đang theo học ngành Hệ thống Thông tin tại UIT. Niềm yêu thích công nghệ bắt đầu từ những năm phổ thông và dần dẫn mình đến việc xây dựng hệ thống dữ liệu, pipeline xử lý và công cụ tìm kiếm thực tế. Mình mong muốn được thực tập trong một đội ngũ kỹ thuật, học hỏi từ những người giàu kinh nghiệm và góp sức vào các sản phẩm AI hoặc dữ liệu có ích.",
       coreInterestLabel: "Lĩnh vực chính",
       coreInterestValue: "Hệ thống dữ liệu, AI & Backend",
       mindsetLabel: "Mục tiêu hiện tại",
-      mindsetValue: "Tìm kiếm cơ hội thực tập Data/AI/Backend",
+      mindsetValue: "Tìm một vị trí thực tập về Data, AI hoặc Backend",
     },
     photography: {
       sectionTag: "Ngoài công nghệ",
       title: "Qua ống kính của mình",
-      description: "Một góc nhỏ dành cho những khoảnh khắc thiên nhiên mình ghi lại trong thời gian rảnh.",
+      description: "Một góc nhỏ lưu lại những khoảnh khắc thiên nhiên mình bắt gặp ngoài giờ học và làm việc.",
     },
     journey: {
       title: "Quá trình phát triển",
-      subtitle: "Sự chuyển mình có chủ đích từ nền tảng Hệ thống thông tin đến Kỹ thuật dữ liệu và Applied AI.",
       phaseLabel: "Giai đoạn",
       steps: [
         {
           title: "Nền tảng Hệ thống Thông tin",
-          period: "2022 - 2023",
+          period: "2023 - 2024",
           subtitle: "Trường Đại học Công nghệ Thông tin (UIT)",
           description: "Xây dựng nền tảng vững chắc về thiết kế cơ sở dữ liệu, tối ưu câu lệnh SQL, phân tích hệ thống và tư duy thuật toán.",
           highlights: ["Thiết kế CSDL quan hệ", "Tối ưu câu lệnh SQL", "Cấu trúc dữ liệu & Giải thuật"]
         },
         {
           title: "Phát triển Web & Backend",
-          period: "2023 - 2024",
+          period: "2024 - 2025",
           subtitle: "Kiến trúc ứng dụng Web",
           description: "Xây dựng các ứng dụng web chuẩn RESTful với Laravel, React và MySQL; chú trọng đến bảo mật web, thiết kế API và quản lý trạng thái.",
           highlights: ["REST API & Bảo mật Sanctum", "React 19 & Luồng dữ liệu", "Kiến trúc Laravel 12"]
         },
         {
           title: "Kỹ thuật Dữ liệu & Pipeline thời gian thực",
-          period: "2024 - 2025",
+          period: "2025 - 2026",
           subtitle: "Hệ thống Streaming & Micro-batch",
           description: "Nghiên cứu xử lý dữ liệu phân tán thông qua pipeline luồng chạy local bằng Docker, sử dụng Apache Kafka, PySpark và kiến trúc Medallion (Bronze-Silver-Gold).",
           highlights: ["Apache Kafka Message Bus", "PySpark Structured Streaming", "Grafana & PostgreSQL Analytics"]
         },
         {
           title: "Applied AI & Truy xuất thông tin (IR)",
-          period: "2025 - Hiện tại",
+          period: "2026 - Hiện tại",
           subtitle: "Tìm kiếm ngữ nghĩa & Hệ thống Vector",
           description: "Tập trung giải quyết bài toán tìm kiếm thực tế với truy xuất lai (TF-IDF + Dense Embeddings), mô hình Cross-Encoder, bộ đánh giá offline (Hit@K, MRR) và FastAPI.",
           highlights: ["Tìm kiếm lai & Cross-Encoders", "FastAPI & Vector Search", "Đánh giá 33/33 Test Cases"]
@@ -454,14 +476,15 @@ export const portfolioContent = {
     education: {
       sectionTag: "Học vấn & Nền tảng",
       title: "Học vấn & Kiến thức",
-      subtitle: "Quá trình đào tạo chính quy tại Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM.",
+      subtitle: "Chương trình Hệ thống Thông tin tại Trường Đại học Công nghệ Thông tin, ĐHQG TP.HCM.",
       info: {
         school: "Trường Đại học Công nghệ Thông tin (UIT), ĐHQG TP.HCM",
         degree: "Cử nhân",
         major: "Hệ thống Thông tin",
         period: "Từ năm 2023",
         location: "TP. Hồ Chí Minh, Việt Nam",
-        summary: "Chuyên sâu về hệ thống truy xuất thông tin, quản trị cơ sở dữ liệu nâng cao, kho dữ liệu và học máy ứng dụng.",
+        summary: "Tập trung vào truy xuất thông tin, hệ quản trị cơ sở dữ liệu nâng cao, kho dữ liệu và học máy ứng dụng.",
+        courseworkLabel: "Các học phần và hướng tập trung",
         coursework: [
           "Truy xuất thông tin & Tìm kiếm ngữ nghĩa",
           "Cơ sở dữ liệu nâng cao",
@@ -474,27 +497,50 @@ export const portfolioContent = {
     },
     currently: {
       sectionTag: "Định hướng",
-      title: "Hiện tại đang thực hiện",
+      title: "Mình đang tập trung vào",
       items: [
-        "Tối ưu độ trễ triển khai và các chỉ số đánh giá cho dự án Tìm kiếm Pháp luật Việt Nam",
-        "Tìm hiểu thêm về LLM API, hệ thống truy xuất đa tầng và Agentic Data Pipelines",
-        "Tìm kiếm cơ hội thực tập về AI, Dữ liệu hoặc Backend tại TP. Hồ Chí Minh"
+        "Rút ngắn thời gian phản hồi và hoàn thiện bộ đánh giá cho dự án Tìm kiếm Pháp luật Việt Nam",
+        "Khám phá LLM API, retrieval nhiều tầng và Agentic Data Pipelines",
+        "Tìm một vị trí thực tập về AI, Dữ liệu hoặc Backend tại TP. Hồ Chí Minh"
       ]
     },
     projects: {
-      sectionTag: "Dự án tiêu biểu",
-      title: "Dự án nổi bật",
-      subtitle: "Được xây dựng chú trọng vào số liệu đo lường, kiến trúc backend sạch và giải quyết bài toán thực tế.",
+      sectionTag: "Dự án",
+      title: "Một vài dự án tiêu biểu",
+      subtitle: "Những dự án mình thực hiện để biến kiến thức kỹ thuật thành hệ thống có thể kiểm chứng.",
       techStack: "Công nghệ",
+      metricsLabel: "Chỉ số & bằng chứng",
       viewGithub: "Xem GitHub",
       viewDemo: "Xem demo",
-      viewCaseStudy: "Xem Case Study",
+      viewCaseStudy: "Xem chi tiết",
       closeCaseStudy: "Đóng",
+      caseStudy: {
+        label: "Câu chuyện dự án",
+        problemGoal: "Bài toán & mục tiêu",
+        problem: "Vấn đề cần giải quyết",
+        goal: "Mục tiêu",
+        roleUsers: "Vai trò & người dùng",
+        role: "Phần việc mình phụ trách",
+        users: "Ai sẽ dùng",
+        solutionArchitecture: "Giải pháp & kiến trúc",
+        solution: "Cách tiếp cận",
+        architecture: "Luồng hệ thống",
+        dataProcessing: "Dòng dữ liệu",
+        challenges: "Thách thức & đánh đổi",
+        constraint: "Ràng buộc",
+        decision: "Quyết định kỹ thuật",
+        results: "Kết quả & đánh giá",
+        evaluation: "Cách đánh giá",
+        outcome: "Kết quả đạt được",
+        lessons: "Điều rút ra & bước tiếp",
+        lessonsLearned: "Bài học",
+        nextSteps: "Hướng phát triển"
+      },
       items: [
         {
           id: "vietnamese-legal-search",
           name: "Vietnamese Legal Semantic Search Engine",
-          description: "Hệ thống truy xuất thông tin lai hỗ trợ tìm kiếm điều khoản Luật Lao động Việt Nam từ câu hỏi tự nhiên, hỗ trợ tìm kiếm không dấu và thuật toán dung hợp thứ hạng.",
+          description: "Công cụ tìm luật lao động bằng ngôn ngữ tự nhiên, kể cả khi câu hỏi không dấu, kết hợp truy xuất từ khóa và ngữ nghĩa để đưa kết quả sát hơn.",
           githubUrl: "https://github.com/dustin-dinh/vietnamese-legal-semantic-search",
           liveUrl: "https://legalsearchdemo.vercel.app/",
           tags: [
@@ -508,14 +554,14 @@ export const portfolioContent = {
             "Docker"
           ],
           metrics: [
-            { label: "Điều luật index", value: "220" },
-            { label: "Test offline đạt", value: "33 / 33" },
-            { label: "Phương pháp truy xuất", value: "Truy xuất lai (RRF)" }
+            { label: "Số điều luật", value: "220" },
+            { label: "Bộ test đã qua", value: "33 / 33" },
+            { label: "Cách truy xuất", value: "Truy xuất lai (RRF)" }
           ],
           caseStudy: {
             problem: "Người dùng tìm kiếm điều luật thường nhập câu hỏi tự nhiên bằng tiếng Việt văn nói, văn bản không dấu hoặc viết tắt, khiến thuật toán khớp từ khóa truyền thống trả về kết quả không chính xác.",
             goal: "Xây dựng hệ thống truy xuất độ chính xác cao trên ~220 điều khoản Luật Lao động Việt Nam với thời gian phản hồi dưới 500ms.",
-            role: "Lập trình viên AI & Backend duy nhất: thiết kế pipeline truy xuất, dịch vụ FastAPI, chuẩn hóa văn bản và bộ đánh giá offline.",
+            role: "Mình phụ trách toàn bộ phần AI và Backend: thiết kế pipeline truy xuất, dịch vụ FastAPI, chuẩn hóa văn bản và bộ đánh giá offline.",
             users: "Chuyên viên HR, người lao động và người nghiên cứu pháp lý cần tra cứu nhanh điều luật.",
             solution: "Áp dụng thuật toán dung hợp Reciprocal Rank Fusion (RRF) kết hợp TF-IDF (khớp từ khóa pháp lý chính xác) và Vector embedding Multilingual E5, sau đó tái sắp xếp thứ hạng bằng mô hình Cross-Encoder.",
             architecture: "FastAPI Backend → Pipeline Tiền xử lý (Chuẩn hóa & Bỏ dấu) → Động cơ Truy xuất lai (TF-IDF + Dense Vector) → Tái xếp hạng (Cross-Encoder) → Giao diện Streamlit / REST API.",
@@ -531,7 +577,7 @@ export const portfolioContent = {
         {
           id: "big-data-healthcare",
           name: "Big Data Healthcare Streaming Pipeline",
-          description: "Nền tảng nghiên cứu chạy local bằng Docker, phát lại dữ liệu Fitbit/SEMA qua Kafka, xử lý micro-batch bằng PySpark theo kiến trúc Medallion (Bronze-Silver-Gold) và trực quan hóa qua Grafana.",
+          description: "Một sandbox dữ liệu sức khỏe chạy bằng Docker: phát lại dữ liệu Fitbit/SEMA qua Kafka, xử lý bằng PySpark và theo dõi qua dashboard Grafana.",
           githubUrl: "https://github.com/dustin-dinh/big-data-healthcare-streaming-pipeline",
           tags: [
             "PySpark",
@@ -551,7 +597,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Dữ liệu đo đạc sức khỏe liên tục (nhịp tim, số bước chân, giấc ngủ) đòi hỏi khả năng tiếp nhận quy mô lớn, làm sạch dữ liệu và trực quan hóa với độ trễ thấp.",
             goal: "Xây dựng kiến trúc Big Data mô phỏng môi trường dữ liệu y tế doanh nghiệp có thể chạy và kiểm thử dễ dàng trên máy cá nhân qua Docker.",
-            role: "Data Engineer: cấu hình các topic Kafka, viết script Spark Structured Streaming, thiết kế schema 3 tầng Medallion và dashboard Grafana.",
+            role: "Mình đảm nhiệm vai trò Data Engineer: cấu hình Kafka, viết job Spark Structured Streaming, thiết kế schema Medallion và dashboard Grafana.",
             users: "Các nhà khoa học dữ liệu và nhà phân tích y tế muốn theo dõi bất thường về mức độ căng thẳng và vận động.",
             solution: "Thiết kế Lakehouse 3 tầng Medallion (Bronze chứa log thô, Silver làm sạch/lọc trùng, Gold tổng hợp chỉ số) dựa trên Spark & PostgreSQL.",
             architecture: "Giả lập Sensor telemetry → Kafka Broker → PySpark Structured Streaming → PostgreSQL Medallion Tables → Dashboard Grafana.",
@@ -567,7 +613,7 @@ export const portfolioContent = {
         {
           id: "furniture-shop-app",
           name: "Furniture Shop Web Application",
-          description: "Nền tảng thương mại điện tử nội thất full-stack hỗ trợ tìm sản phẩm, giỏ hàng duy trì, thanh toán Stripe, theo dõi đơn hàng và trang quản trị.",
+          description: "Ứng dụng bán nội thất full-stack, từ khám phá sản phẩm và giỏ hàng đến thanh toán, theo dõi đơn hàng và quản trị.",
           githubUrl: "https://github.com/dustin-dinh/furniture-shop-web-application",
           tags: [
             "React 19",
@@ -587,7 +633,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Khách hàng mua sắm trực tuyến yêu cầu giao diện phản hồi tức thì, xử lý đơn hàng đáng tin cậy và quy trình thanh toán an toàn.",
             goal: "Xây dựng ứng dụng web full-stack hiện đại thể hiện chuẩn mực backend sản xuất và giao diện frontend phản hồi linh hoạt.",
-            role: "Full-Stack Developer: thiết kế CSDL quan hệ, các API RESTful, xác thực người dùng và các component React.",
+            role: "Mình phụ trách phần full-stack: thiết kế CSDL quan hệ, API RESTful, xác thực người dùng và các component React.",
             users: "Khách hàng mua nội thất trực tuyến và quản trị viên cửa hàng quản lý kho hàng.",
             solution: "Kiến trúc tách biệt giữa Laravel 12 RESTful API bảo mật bằng token Sanctum và React 19 SPA frontend.",
             architecture: "React 19 Frontend (Vite) → REST API Gateway → Controller & Middleware Laravel 12 → CSDL MySQL + Stripe Payment Webhooks.",
@@ -605,7 +651,7 @@ export const portfolioContent = {
     skills: {
       sectionTag: "Năng lực",
       title: "Kỹ năng kỹ thuật",
-      subtitle: "Các công nghệ được rèn luyện qua các dự án kỹ thuật thực tế và học phần đại học.",
+      subtitle: "Những công nghệ mình đã dùng trong dự án thực tế và quá trình học.",
       categories: [
         {
           title: "AI & Truy xuất thông tin",
@@ -675,15 +721,14 @@ export const portfolioContent = {
     },
     contact: {
       sectionTag: "Liên hệ",
-      title: "Liên hệ với tôi",
-      description: "Tôi hiện đang tìm kiếm các cơ hội thực tập về AI, Dữ liệu và Backend. Nếu bạn có ý tưởng dự án, cơ hội thực tập hoặc muốn trao đổi về lập trình phần mềm, hãy liên hệ với tôi!",
+      title: "Kết nối với mình",
+      description: "Mình đang tìm cơ hội thực tập trong mảng AI, Dữ liệu và Backend. Nếu bạn có một vị trí phù hợp, một ý tưởng dự án, hoặc chỉ muốn trao đổi về công nghệ, mình rất vui được nghe từ bạn.",
       sendEmail: "Gửi email",
       viewGithub: "Xem GitHub",
       visitFacebook: "Xem Facebook",
       chatZalo: "Nhắn tin qua Zalo",
       emailSubject: "Cơ hội thực tập dành cho Đinh Nhật Luân",
-      emailCopied: "Đã sao chép địa chỉ email. Bạn có thể dán vào ứng dụng email nếu cửa sổ soạn thư không mở.",
-      closingMsg: "Tôi luôn sẵn sàng trao đổi về cơ hội thực tập, dự án công nghệ hoặc những ý tưởng có thể cùng nhau phát triển.",
+      closingMsg: "Có một cơ hội phù hợp, dự án thú vị hay ý tưởng muốn trao đổi? Mình rất vui được kết nối.",
       facebookAria: "Ghé thăm Facebook của Đinh Nhật Luân",
       zaloAria: "Nhắn tin qua Zalo với Đinh Nhật Luân"
     },

@@ -32,6 +32,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
   if (!project) return null;
 
   const cs = project.caseStudy;
+  const labels = t.projects.caseStudy;
 
   return (
     <div
@@ -49,7 +50,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[#D3DAD9]/10 bg-[#37353E]/95 px-6 py-5 backdrop-blur-md sm:px-8">
           <div>
             <span className="font-mono text-xs font-bold tracking-widest text-[#A98A8A]">
-              /{project.id} · CASE STUDY
+              /{project.id} · {labels.label}
             </span>
             <h2 id="case-study-title" className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
               {project.name}
@@ -65,7 +66,6 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
         </div>
 
         <div className="p-6 space-y-8 sm:p-8">
-          {/* Key Metrics Banner */}
           <div className="grid grid-cols-1 gap-4 rounded-2xl border border-[#A98A8A]/30 bg-[#44444E]/80 p-5 sm:grid-cols-3">
             {project.metrics.map((m) => (
               <div key={m.label} className="space-y-1">
@@ -101,65 +101,60 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
             </a>
           </div>
 
-          {/* Grid Layout of Case Study Sections */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {/* Problem & Goal */}
             <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <Target className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">Problem & Goal</h3>
+                <h3 className="text-base font-bold text-white">{labels.problemGoal}</h3>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Problem</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.problem}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.problem}</p>
               </div>
               <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Goal</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.goal}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.goal}</p>
               </div>
             </div>
 
-            {/* Role & Users */}
             <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <Layers className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">Role & Target Users</h3>
+                <h3 className="text-base font-bold text-white">{labels.roleUsers}</h3>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">My Direct Role</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.role}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.role}</p>
               </div>
               <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Target Users</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.users}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.users}</p>
               </div>
             </div>
           </div>
 
-          {/* Solution & Architecture */}
           <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
             <div className="flex items-center gap-2 text-[#A98A8A]">
               <Cpu className="h-5 w-5" />
-              <h3 className="text-base font-bold text-white">Solution & Architecture</h3>
+              <h3 className="text-base font-bold text-white">{labels.solutionArchitecture}</h3>
             </div>
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Solution Overview</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.solution}</h4>
               <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.solution}</p>
             </div>
             <div className="pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">System Architecture & Flow</h4>
+              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.architecture}</h4>
               <p className="mt-1 font-mono text-xs leading-relaxed text-[#E5D5D5] bg-[#37353E] p-3 rounded-xl border border-[#D3DAD9]/10">
                 {cs.architecture}
               </p>
             </div>
           </div>
 
-          {/* Data & Technical Challenges */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <Database className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">Data Processing</h3>
+                <h3 className="text-base font-bold text-white">{labels.dataProcessing}</h3>
               </div>
               <p className="text-sm leading-relaxed text-[#D3DAD9]">{cs.dataProcess}</p>
             </div>
@@ -167,32 +162,31 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
             <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <AlertTriangle className="h-5 w-5 text-amber-400" />
-                <h3 className="text-base font-bold text-white">Technical Challenges & Trade-offs</h3>
+                <h3 className="text-base font-bold text-white">{labels.challenges}</h3>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400">Resource Constraint / Challenge</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400">{labels.constraint}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.challenges}</p>
               </div>
               <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Engineering Decision</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.decision}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.decisions}</p>
               </div>
             </div>
           </div>
 
-          {/* Results & Lessons */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             <div className="space-y-4 rounded-2xl border border-[#A98A8A]/30 bg-[#715A5A]/20 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <Award className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">Results & Evaluation</h3>
+                <h3 className="text-base font-bold text-white">{labels.results}</h3>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Evaluation Strategy</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.evaluation}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.evaluation}</p>
               </div>
               <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Measurable Outcome</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.outcome}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#E5D5D5] font-semibold">{cs.results}</p>
               </div>
             </div>
@@ -200,14 +194,14 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
             <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
               <div className="flex items-center gap-2 text-[#A98A8A]">
                 <Lightbulb className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">Lessons & Next Steps</h3>
+                <h3 className="text-base font-bold text-white">{labels.lessons}</h3>
               </div>
               <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Lessons Learned</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.lessonsLearned}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.lessonsLearned}</p>
               </div>
               <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">Next Iterations</h4>
+                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.nextSteps}</h4>
                 <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.nextSteps}</p>
               </div>
             </div>
