@@ -76,7 +76,7 @@ export const portfolioContent = {
       education: "Education",
       currently: "Currently",
       projects: "Projects",
-      skills: "Skills",
+      skills: "Technical Skills",
       photography: "Photography",
       contact: "Contact",
     },
@@ -90,7 +90,7 @@ export const portfolioContent = {
       emailBtn: "Email",
     },
     about: {
-      sectionTag: "About Me",
+      sectionTag: "About",
       title: "Who I Am",
       whoIAmTitle: "Who I Am",
       bio: "I am currently a student at the University of Information Technology (UIT), majoring in Information Systems. My interest in technology began in high school and grew into a passion for building practical data pipelines and information retrieval systems. I am seeking an internship where I can apply my engineering background, learn from senior mentors, and contribute to real-world AI & Data products.",
@@ -100,7 +100,7 @@ export const portfolioContent = {
       mindsetValue: "Seeking Data/AI/Backend Internship",
     },
     photography: {
-      sectionTag: "Beyond Technology",
+      sectionTag: "Photography",
       title: "Through My Lens",
       description: "A small corner for the nature photographs I capture in my free time.",
     },
@@ -139,7 +139,7 @@ export const portfolioContent = {
       ]
     },
     education: {
-      sectionTag: "Academic Background",
+      sectionTag: "Education",
       title: "Education & Knowledge",
       subtitle: "Academic training at VNU-HCM University of Information Technology.",
       info: {
@@ -170,7 +170,7 @@ export const portfolioContent = {
       ]
     },
     projects: {
-      sectionTag: "Portfolio Highlights",
+      sectionTag: "Projects",
       title: "Featured Engineering Projects",
       subtitle: "Engineered with focus on measurable metrics, clean backend architecture, and problem-solving.",
       techStack: "Tech stack",
@@ -314,7 +314,7 @@ export const portfolioContent = {
       ]
     },
     skills: {
-      sectionTag: "Capabilities",
+      sectionTag: "Technical Skills",
       title: "Technical Skills",
       subtitle: "Technologies practiced through real-world engineering projects and academic coursework.",
       categories: [
@@ -385,7 +385,7 @@ export const portfolioContent = {
       ]
     },
     contact: {
-      sectionTag: "Get In Touch",
+      sectionTag: "Contact",
       title: "Let's Connect & Work Together",
       description: "I am currently open to AI, Data, and Backend Internship opportunities. Whether you have a project idea, an internship opportunity, or want to discuss software engineering, feel free to reach out!",
       sendEmail: "Send Email",
@@ -411,7 +411,7 @@ export const portfolioContent = {
       education: "Học vấn",
       currently: "Hiện tại",
       projects: "Dự án",
-      skills: "Kỹ năng",
+      skills: "Technical Skills",
       photography: "Nhiếp ảnh",
       contact: "Liên hệ",
     },
@@ -435,7 +435,7 @@ export const portfolioContent = {
       mindsetValue: "Tìm một vị trí thực tập về Data, AI hoặc Backend",
     },
     photography: {
-      sectionTag: "Ngoài công nghệ",
+      sectionTag: "Nhiếp ảnh",
       title: "Qua ống kính của mình",
       description: "Một góc nhỏ lưu lại những khoảnh khắc thiên nhiên mình bắt gặp ngoài giờ học và làm việc.",
     },
@@ -474,7 +474,7 @@ export const portfolioContent = {
       ]
     },
     education: {
-      sectionTag: "Học vấn & Nền tảng",
+      sectionTag: "Học vấn",
       title: "Học vấn & Kiến thức",
       subtitle: "Chương trình Hệ thống Thông tin tại Trường Đại học Công nghệ Thông tin, ĐHQG TP.HCM.",
       info: {
@@ -649,8 +649,8 @@ export const portfolioContent = {
       ]
     },
     skills: {
-      sectionTag: "Năng lực",
-      title: "Kỹ năng kỹ thuật",
+      sectionTag: "Technical Skills",
+      title: "Technical Skills",
       subtitle: "Những công nghệ mình đã dùng trong dự án thực tế và quá trình học.",
       categories: [
         {

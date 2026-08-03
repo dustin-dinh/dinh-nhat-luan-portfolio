@@ -3,7 +3,6 @@
 import { useState } from "react";
 import dynamic from "next/dynamic";
 import { useLanguage } from "@/context/LanguageContext";
-import type { ProjectContent } from "@/data/portfolio";
 import ProjectCard from "./ProjectCard";
 import { FolderCode } from "lucide-react";
 
@@ -11,7 +10,8 @@ const CaseStudyModal = dynamic(() => import("./CaseStudyModal"));
 
 export default function Projects() {
   const { t } = useLanguage();
-  const [selectedProject, setSelectedProject] = useState<ProjectContent | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
+  const selectedProject = t.projects.items.find((project) => project.id === selectedProjectId) ?? null;
 
   return (
     <section id="projects" className="bg-[#37353E] py-20">
@@ -32,7 +32,7 @@ export default function Projects() {
             <ProjectCard
               key={project.id}
               project={project}
-              onOpenCaseStudy={(proj) => setSelectedProject(proj)}
+              onOpenCaseStudy={(proj) => setSelectedProjectId(proj.id)}
             />
           ))}
         </div>
@@ -41,7 +41,7 @@ export default function Projects() {
       {selectedProject && (
         <CaseStudyModal
           project={selectedProject}
-          onClose={() => setSelectedProject(null)}
+          onClose={() => setSelectedProjectId(null)}
         />
       )}
     </section>

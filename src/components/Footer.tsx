@@ -13,7 +13,7 @@ export default function Footer() {
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-xs font-medium text-[#AEB4B3] sm:flex-row sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
           <div className="flex items-center gap-1.5">
-            <span>© {new Date().getFullYear()} {personalInfo.name}.</span>
+            <span>© {new Date().getFullYear()} {t.navigation.brand}.</span>
             <Heart className="h-3.5 w-3.5 fill-[#A98A8A] text-[#A98A8A]" />
             <span>{t.footer.builtWith}</span>
           </div>

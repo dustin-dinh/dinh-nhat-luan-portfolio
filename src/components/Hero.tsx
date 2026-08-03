@@ -36,7 +36,7 @@ export default function Hero() {
             {/* Name & Title */}
             <div className="space-y-2.5">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                {personalInfo.name}
+                {t.navigation.brand}
               </h1>
               <p className="text-xl sm:text-2xl font-bold text-[#A98A8A]">
                 {t.hero.title}

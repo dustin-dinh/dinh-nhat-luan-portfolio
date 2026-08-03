@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { X, AlertTriangle, Layers, Cpu, Database, Target, Award, Lightbulb, ExternalLink } from "lucide-react";
 import { ProjectContent } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
@@ -29,14 +30,14 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
     }
   }, [project, onClose]);
 
-  if (!project) return null;
+  if (!project || typeof document === "undefined") return null;
 
   const cs = project.caseStudy;
   const labels = t.projects.caseStudy;
 
-  return (
+  return createPortal(
     <div
-      className="case-study-backdrop fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/75 p-4 sm:p-6 backdrop-blur-md"
+      className="case-study-backdrop fixed inset-0 z-[60] flex items-center justify-center overflow-hidden bg-black/75 p-4 sm:p-6 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
@@ -218,6 +219,7 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
