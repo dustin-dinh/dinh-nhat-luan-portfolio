@@ -35,7 +35,7 @@ export default function Skills() {
             return (
               <div
                 key={category.title}
-                className="flex flex-col justify-between space-y-4 rounded-2xl border border-[#D3DAD9]/12 bg-[#37353E] p-6 shadow-lg shadow-black/10 transition-colors hover:border-[#A98A8A]/50"
+                className="portfolio-card flex flex-col justify-between space-y-4 rounded-2xl border border-[#D3DAD9]/12 bg-[#37353E] p-6 shadow-lg shadow-black/10 transition-colors hover:border-[#A98A8A]/50"
               >
                 <div>
                   <div className="flex items-center gap-3">

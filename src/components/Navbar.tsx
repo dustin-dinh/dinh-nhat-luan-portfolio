@@ -12,7 +12,6 @@ export default function Navbar() {
   const navItems = [
     { label: t.navigation.projects, href: "#projects" },
     { label: t.navigation.skills, href: "#skills" },
-    { label: t.navigation.journey, href: "#journey" },
     { label: t.navigation.education, href: "#education" },
     { label: t.navigation.about, href: "#about" },
     { label: t.navigation.photography, href: "#photography" },

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
 import { Mail, Send } from "lucide-react";
@@ -7,7 +8,13 @@ import { GithubIcon, FacebookIcon, ZaloIcon } from "@/components/BrandIcons";
 
 export default function Contact() {
   const { t } = useLanguage();
+  const [emailCopied, setEmailCopied] = useState(false);
   const mailToUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(t.contact.emailSubject)}`;
+  const copyEmail = () => {
+    if (navigator.clipboard) {
+      void navigator.clipboard.writeText(personalInfo.email).then(() => setEmailCopied(true)).catch(() => undefined);
+    }
+  };
   const links = [
     { label: "Email", text: t.contact.sendEmail, href: mailToUrl, icon: Mail },
     { label: "GitHub", text: t.contact.viewGithub, href: personalInfo.github, icon: GithubIcon },
@@ -34,9 +41,10 @@ export default function Contact() {
             <a
               key={label}
               href={href}
+              onClick={label === "Email" ? copyEmail : undefined}
               target={label === "Email" ? undefined : "_blank"}
               rel={label === "Email" ? undefined : "noopener noreferrer"}
-              className="group flex flex-col justify-between gap-5 rounded-2xl border border-[#37353E]/15 bg-white/35 p-5 transition-all hover:-translate-y-1 hover:border-[#715A5A] hover:bg-white/55"
+              className="portfolio-card group flex flex-col justify-between gap-5 rounded-2xl border border-[#37353E]/15 bg-white/35 p-5 transition-all hover:border-[#715A5A] hover:bg-white/55"
             >
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#715A5A] text-white transition-transform group-hover:scale-105">
                 <Icon className="h-5 w-5" />
@@ -48,6 +56,10 @@ export default function Contact() {
             </a>
           ))}
         </div>
+
+        <p aria-live="polite" className="mt-4 min-h-5 text-center text-xs font-medium text-[#715A5A]">
+          {emailCopied ? t.contact.emailCopied : ""}
+        </p>
 
         <div className="mt-10 rounded-xl border border-[#37353E]/15 bg-white/30 p-4 text-center">
           <p className="text-xs font-medium text-[#44444E]">&ldquo;{t.contact.closingMsg}&rdquo;</p>

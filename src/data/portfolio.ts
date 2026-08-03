@@ -72,7 +72,6 @@ export const portfolioContent = {
     navigation: {
       brand: "Dinh Nhat Luan",
       about: "About",
-      journey: "Journey",
       education: "Education",
       currently: "Currently",
       projects: "Projects",
@@ -83,7 +82,7 @@ export const portfolioContent = {
     hero: {
       title: "AI Engineer Intern | Information Retrieval & Backend Developer",
       availabilityLabel: "Open to AI, Data & Backend Internship Opportunities",
-      heroIntro: "I build practical data systems and AI-powered applications — from real-time streaming pipelines to semantic search.",
+      heroIntro: "I build practical data systems and AI-powered applications, from real-time streaming pipelines to semantic search.",
       subIntro: "Hi, I'm Luan! An Information Systems student at UIT passionate about Information Retrieval, Data Pipelines, and Backend Engineering.",
       viewProjectsBtn: "View Projects",
       githubBtn: "GitHub",
@@ -105,9 +104,9 @@ export const portfolioContent = {
       description: "A small corner for the nature photographs I capture in my free time.",
     },
     journey: {
-      sectionTag: "Career Progression",
       title: "My Growth Journey",
       subtitle: "An intentional evolution from foundational Information Systems to Data Engineering and Applied AI.",
+      phaseLabel: "Phase",
       steps: [
         {
           title: "Information Systems Foundation",
@@ -144,10 +143,10 @@ export const portfolioContent = {
       title: "Education & Knowledge",
       subtitle: "Academic training at VNU-HCM University of Information Technology.",
       info: {
-        school: "University of Information Technology (UIT) — VNU-HCM",
+        school: "University of Information Technology (UIT), VNU-HCM",
         degree: "Bachelor of Science",
         major: "Information Systems",
-        period: "2022 – Present",
+        period: "Since 2023",
         location: "Ho Chi Minh City, Vietnam",
         summary: "Specializing in information retrieval systems, advanced database administration, data warehousing, and applied machine learning.",
         coursework: [
@@ -203,7 +202,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Users finding legal provisions often search using natural conversational Vietnamese, accentless text, or abbreviations, causing standard keyword matching to return irrelevant articles.",
             goal: "Build a high-precision retrieval system capable of searching ~220 Vietnamese Labor Code provisions under 500ms response time.",
-            role: "Sole AI & Backend Developer — designed the retrieval pipeline, FastAPI services, text normalization, and offline evaluation suite.",
+            role: "Sole AI & Backend Developer: designed the retrieval pipeline, FastAPI services, text normalization, and offline evaluation suite.",
             users: "HR professionals, employees, and legal researchers looking for quick law provision lookups.",
             solution: "Implemented Reciprocal Rank Fusion (RRF) combining Sparse TF-IDF (for exact legal terms) with Multilingual E5 dense embeddings, followed by a Cross-Encoder reranker.",
             architecture: "FastAPI Backend → Preprocessing Pipeline (Normalization & Accent Removal) → Hybrid Retrieval Engine (TF-IDF + Dense Vector) → Reranking Stage → Streamlit UI / REST API.",
@@ -239,7 +238,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Continuous health telemetry (heart rate, step counts, sleep data) requires scalable ingestion, data quality refinement, and low-latency visualization.",
             goal: "Create a reproducible local Big Data architecture mimicking enterprise healthcare streaming environments.",
-            role: "Data Engineer — configured Kafka topics, written Spark Structured Streaming jobs, Medallion layer schemas, and Grafana panels.",
+            role: "Data Engineer: configured Kafka topics, wrote Spark Structured Streaming jobs, Medallion layer schemas, and Grafana panels.",
             users: "Data scientists and healthcare analysts examining real-time stress and activity anomalies.",
             solution: "Designed a 3-tier Medallion lakehouse (Bronze for raw JSON logs, Silver for cleaned/deduplicated records, Gold for aggregated metrics) backed by Spark & PostgreSQL.",
             architecture: "Telemetry Simulator → Apache Kafka Broker → PySpark Structured Streaming → PostgreSQL Medallion Tables → Grafana Visualization Dashboards.",
@@ -275,7 +274,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "E-commerce shoppers expect immediate UI feedback, reliable order processing, and secure checkout workflows.",
             goal: "Deliver a modern full-stack web application demonstrating production-ready backend standards and responsive frontend interfaces.",
-            role: "Full-Stack Developer — built relational database schemas, REST API endpoints, user authentication, and React components.",
+            role: "Full-Stack Developer: built relational database schemas, REST API endpoints, user authentication, and React components.",
             users: "Online retail customers browsing furniture items and store administrators managing inventory.",
             solution: "Decoupled architecture using Laravel 12 RESTful API with Laravel Sanctum token security and React 19 SPA frontend.",
             architecture: "React 19 Frontend (Vite) → REST API Gateway → Laravel 12 Controllers & Middleware → MySQL Database + Stripe Payment Webhooks.",
@@ -370,6 +369,7 @@ export const portfolioContent = {
       visitFacebook: "Visit Facebook",
       chatZalo: "Chat on Zalo",
       emailSubject: "Internship Opportunity for Dinh Nhat Luan",
+      emailCopied: "Email address copied. Paste it into your email app if no compose window opens.",
       closingMsg: "I am always open to discussing internship roles, engineering projects, or ideas we can build together.",
       facebookAria: "Visit Dinh Nhat Luan on Facebook",
       zaloAria: "Contact Dinh Nhat Luan on Zalo"
@@ -385,7 +385,6 @@ export const portfolioContent = {
     navigation: {
       brand: "Đinh Nhật Luân",
       about: "Giới thiệu",
-      journey: "Hành trình",
       education: "Học vấn",
       currently: "Hiện tại",
       projects: "Dự án",
@@ -396,7 +395,7 @@ export const portfolioContent = {
     hero: {
       title: "AI Engineer Intern | Lập trình viên Backend & Hệ thống truy xuất",
       availabilityLabel: "Đang tìm kiếm cơ hội thực tập về AI, Dữ liệu và Backend",
-      heroIntro: "Tôi xây dựng các hệ thống dữ liệu thực tế và ứng dụng AI — từ pipeline luồng dữ liệu thời gian thực đến truy xuất thông tin ngữ nghĩa.",
+      heroIntro: "Tôi xây dựng các hệ thống dữ liệu thực tế và ứng dụng AI, từ pipeline luồng dữ liệu thời gian thực đến truy xuất thông tin ngữ nghĩa.",
       subIntro: "Xin chào, tôi là Luân! Sinh viên ngành Hệ thống Thông tin trường UIT, đam mê Truy xuất thông tin, Pipeline Dữ liệu và Kỹ thuật Backend.",
       viewProjectsBtn: "Xem dự án",
       githubBtn: "GitHub",
@@ -418,9 +417,9 @@ export const portfolioContent = {
       description: "Một góc nhỏ dành cho những khoảnh khắc thiên nhiên mình ghi lại trong thời gian rảnh.",
     },
     journey: {
-      sectionTag: "Hành trình phát triển",
       title: "Quá trình phát triển",
       subtitle: "Sự chuyển mình có chủ đích từ nền tảng Hệ thống thông tin đến Kỹ thuật dữ liệu và Applied AI.",
+      phaseLabel: "Giai đoạn",
       steps: [
         {
           title: "Nền tảng Hệ thống Thông tin",
@@ -457,10 +456,10 @@ export const portfolioContent = {
       title: "Học vấn & Kiến thức",
       subtitle: "Quá trình đào tạo chính quy tại Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM.",
       info: {
-        school: "Trường Đại học Công nghệ Thông tin (UIT) — ĐHQG TP.HCM",
+        school: "Trường Đại học Công nghệ Thông tin (UIT), ĐHQG TP.HCM",
         degree: "Cử nhân",
         major: "Hệ thống Thông tin",
-        period: "2022 – Hiện tại",
+        period: "Từ năm 2023",
         location: "TP. Hồ Chí Minh, Việt Nam",
         summary: "Chuyên sâu về hệ thống truy xuất thông tin, quản trị cơ sở dữ liệu nâng cao, kho dữ liệu và học máy ứng dụng.",
         coursework: [
@@ -516,7 +515,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Người dùng tìm kiếm điều luật thường nhập câu hỏi tự nhiên bằng tiếng Việt văn nói, văn bản không dấu hoặc viết tắt, khiến thuật toán khớp từ khóa truyền thống trả về kết quả không chính xác.",
             goal: "Xây dựng hệ thống truy xuất độ chính xác cao trên ~220 điều khoản Luật Lao động Việt Nam với thời gian phản hồi dưới 500ms.",
-            role: "Lập trình viên AI & Backend duy nhất — thiết kế pipeline truy xuất, dịch vụ FastAPI, chuẩn hóa văn bản và bộ đánh giá offline.",
+            role: "Lập trình viên AI & Backend duy nhất: thiết kế pipeline truy xuất, dịch vụ FastAPI, chuẩn hóa văn bản và bộ đánh giá offline.",
             users: "Chuyên viên HR, người lao động và người nghiên cứu pháp lý cần tra cứu nhanh điều luật.",
             solution: "Áp dụng thuật toán dung hợp Reciprocal Rank Fusion (RRF) kết hợp TF-IDF (khớp từ khóa pháp lý chính xác) và Vector embedding Multilingual E5, sau đó tái sắp xếp thứ hạng bằng mô hình Cross-Encoder.",
             architecture: "FastAPI Backend → Pipeline Tiền xử lý (Chuẩn hóa & Bỏ dấu) → Động cơ Truy xuất lai (TF-IDF + Dense Vector) → Tái xếp hạng (Cross-Encoder) → Giao diện Streamlit / REST API.",
@@ -552,7 +551,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Dữ liệu đo đạc sức khỏe liên tục (nhịp tim, số bước chân, giấc ngủ) đòi hỏi khả năng tiếp nhận quy mô lớn, làm sạch dữ liệu và trực quan hóa với độ trễ thấp.",
             goal: "Xây dựng kiến trúc Big Data mô phỏng môi trường dữ liệu y tế doanh nghiệp có thể chạy và kiểm thử dễ dàng trên máy cá nhân qua Docker.",
-            role: "Data Engineer — cấu hình các topic Kafka, viết script Spark Structured Streaming, thiết kế schema 3 tầng Medallion và dashboard Grafana.",
+            role: "Data Engineer: cấu hình các topic Kafka, viết script Spark Structured Streaming, thiết kế schema 3 tầng Medallion và dashboard Grafana.",
             users: "Các nhà khoa học dữ liệu và nhà phân tích y tế muốn theo dõi bất thường về mức độ căng thẳng và vận động.",
             solution: "Thiết kế Lakehouse 3 tầng Medallion (Bronze chứa log thô, Silver làm sạch/lọc trùng, Gold tổng hợp chỉ số) dựa trên Spark & PostgreSQL.",
             architecture: "Giả lập Sensor telemetry → Kafka Broker → PySpark Structured Streaming → PostgreSQL Medallion Tables → Dashboard Grafana.",
@@ -588,7 +587,7 @@ export const portfolioContent = {
           caseStudy: {
             problem: "Khách hàng mua sắm trực tuyến yêu cầu giao diện phản hồi tức thì, xử lý đơn hàng đáng tin cậy và quy trình thanh toán an toàn.",
             goal: "Xây dựng ứng dụng web full-stack hiện đại thể hiện chuẩn mực backend sản xuất và giao diện frontend phản hồi linh hoạt.",
-            role: "Full-Stack Developer — thiết kế CSDL quan hệ, các API RESTful, xác thực người dùng và các component React.",
+            role: "Full-Stack Developer: thiết kế CSDL quan hệ, các API RESTful, xác thực người dùng và các component React.",
             users: "Khách hàng mua nội thất trực tuyến và quản trị viên cửa hàng quản lý kho hàng.",
             solution: "Kiến trúc tách biệt giữa Laravel 12 RESTful API bảo mật bằng token Sanctum và React 19 SPA frontend.",
             architecture: "React 19 Frontend (Vite) → REST API Gateway → Controller & Middleware Laravel 12 → CSDL MySQL + Stripe Payment Webhooks.",
@@ -683,6 +682,7 @@ export const portfolioContent = {
       visitFacebook: "Xem Facebook",
       chatZalo: "Nhắn tin qua Zalo",
       emailSubject: "Cơ hội thực tập dành cho Đinh Nhật Luân",
+      emailCopied: "Đã sao chép địa chỉ email. Bạn có thể dán vào ứng dụng email nếu cửa sổ soạn thư không mở.",
       closingMsg: "Tôi luôn sẵn sàng trao đổi về cơ hội thực tập, dự án công nghệ hoặc những ý tưởng có thể cùng nhau phát triển.",
       facebookAria: "Ghé thăm Facebook của Đinh Nhật Luân",
       zaloAria: "Nhắn tin qua Zalo với Đinh Nhật Luân"

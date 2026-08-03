@@ -41,7 +41,7 @@ export default function About() {
             </h2>
           </div>
 
-          <div className="rounded-3xl border border-[#D3DAD9]/12 bg-[#37353E] p-6 shadow-2xl shadow-black/15 sm:p-9">
+          <div className="portfolio-card rounded-3xl border border-[#D3DAD9]/12 bg-[#37353E] p-6 shadow-2xl shadow-black/15 sm:p-9">
             <h3 className="flex items-center gap-2.5 text-xl font-bold text-white">
               <Compass className="h-5 w-5 text-[#A98A8A]" />
               {t.about.whoIAmTitle}

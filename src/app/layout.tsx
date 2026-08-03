@@ -36,7 +36,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: "Dinh Nhat Luan — Data Systems, AI and Backend Portfolio",
+        alt: "Dinh Nhat Luan, Data Systems, AI and Backend Portfolio",
       },
     ],
   },

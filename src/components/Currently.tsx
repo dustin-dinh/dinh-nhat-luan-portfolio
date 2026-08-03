@@ -9,7 +9,7 @@ export default function Currently() {
   return (
     <section id="currently" className="border-b border-[#D3DAD9]/10 bg-[#37353E] py-14">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="space-y-5 rounded-2xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-xl shadow-black/10 sm:p-8">
+        <div className="portfolio-card space-y-5 rounded-2xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-xl shadow-black/10 sm:p-8">
           <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#A98A8A]">
             <Sparkles className="h-4 w-4" />
             <span>{t.currently.title}</span>

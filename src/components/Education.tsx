@@ -21,7 +21,7 @@ export default function Education() {
           <p className="max-w-2xl text-base text-[#D3DAD9]">{t.education.subtitle}</p>
         </div>
 
-        <div className="rounded-3xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-2xl sm:p-8">
+        <div className="portfolio-card rounded-3xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-2xl sm:p-8">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 border-b border-[#D3DAD9]/10 pb-6">
             <div className="space-y-1">
               <span className="text-xs font-bold uppercase tracking-wider text-[#A98A8A]">

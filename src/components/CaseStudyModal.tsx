@@ -19,13 +19,14 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
       if (e.key === "Escape") onClose();
     };
     if (project) {
+      const previousBodyOverflow = document.body.style.overflow;
       document.body.style.overflow = "hidden";
       window.addEventListener("keydown", handleKeyDown);
+      return () => {
+        document.body.style.overflow = previousBodyOverflow;
+        window.removeEventListener("keydown", handleKeyDown);
+      };
     }
-    return () => {
-      document.body.style.overflow = "unset";
-      window.removeEventListener("keydown", handleKeyDown);
-    };
   }, [project, onClose]);
 
   if (!project) return null;
@@ -34,14 +35,14 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/75 p-4 sm:p-6 backdrop-blur-md transition-opacity animate-in fade-in duration-200"
+      className="case-study-backdrop fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-black/75 p-4 sm:p-6 backdrop-blur-md"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
     >
       <div
-        className="relative my-8 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-3xl border border-[#D3DAD9]/20 bg-[#37353E] text-[#D3DAD9] shadow-2xl transition-all"
+        className="case-study-panel relative w-full max-w-5xl max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl border border-[#D3DAD9]/20 bg-[#37353E] text-[#D3DAD9] shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

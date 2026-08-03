@@ -8,6 +8,7 @@ import { GithubIcon } from "@/components/BrandIcons";
 
 export default function Hero() {
   const { t } = useLanguage();
+  const mailToUrl = `mailto:${personalInfo.email}?subject=${encodeURIComponent(t.contact.emailSubject)}`;
 
   return (
     <section
@@ -83,7 +84,7 @@ export default function Hero() {
 
               {/* Email Link */}
               <a
-                href={`mailto:${personalInfo.email}`}
+                href={mailToUrl}
                 className="inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/40 bg-transparent px-4 py-3 text-sm font-medium text-[#D3DAD9] shadow-xs transition-all hover:border-[#A98A8A] hover:text-white"
                 aria-label="Email Me"
               >

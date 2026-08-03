@@ -14,7 +14,7 @@ export default function ProjectCard({ project, onOpenCaseStudy }: ProjectCardPro
   const { t } = useLanguage();
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition-[transform,border-color,background-color] duration-300 hover:-translate-y-1.5 hover:border-[#715A5A] hover:bg-[#4B4B56] sm:p-7">
+    <article className="portfolio-card group relative flex h-full flex-col overflow-hidden rounded-3xl border border-[#D3DAD9]/12 bg-[#44444E] p-6 shadow-[0_16px_40px_rgba(0,0,0,0.2)] transition-[transform,border-color,background-color] duration-300 hover:border-[#715A5A] hover:bg-[#4B4B56] sm:p-7">
       <div className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-[#715A5A] transition-transform duration-500 group-hover:scale-x-100" />
 
       <div className="flex flex-1 flex-col">
