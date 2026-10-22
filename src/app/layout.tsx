@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
+const inter = Inter({
+  subsets: ["latin", "vietnamese"],
+  variable: "--font-inter",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://dinh-nhat-luan-portfolio.vercel.app"),
-  title: "Dinh Nhat Luan | AI Engineer Intern",
+  title: "Dinh Nhat Luan | AI Engineer & Fullstack Web",
   description:
-    "Portfolio of Dinh Nhat Luan, an Information Systems student focused on information retrieval, AI engineering, backend development, and data-driven applications.",
+    "Portfolio of Dinh Nhat Luan, an AI Engineer & Fullstack Web developer working on computer vision, face recognition, information retrieval and business automation.",
   keywords: [
     "Dinh Nhat Luan",
-    "AI Engineer Intern",
+    "AI Engineer",
+    "Fullstack Web Developer",
+    "Computer Vision",
+    "Face Recognition",
     "Information Retrieval",
     "Backend Developer",
     "Python",
@@ -23,9 +32,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Dinh Nhat Luan" }],
   creator: "Dinh Nhat Luan",
   openGraph: {
-    title: "Dinh Nhat Luan | AI Engineer Intern",
+    title: "Dinh Nhat Luan | AI Engineer & Fullstack Web",
     description:
-      "Portfolio of Dinh Nhat Luan, an Information Systems student focused on information retrieval, AI engineering, backend development, and data-driven applications.",
+      "Portfolio of Dinh Nhat Luan, an AI Engineer & Fullstack Web developer working on computer vision, face recognition, information retrieval and business automation.",
     url: "https://dinh-nhat-luan-portfolio.vercel.app",
     siteName: "Dinh Nhat Luan Portfolio",
     locale: "en_US",
@@ -41,9 +50,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dinh Nhat Luan | AI Engineer Intern",
+    title: "Dinh Nhat Luan | AI Engineer & Fullstack Web",
     description:
-      "Portfolio of Dinh Nhat Luan, an Information Systems student focused on information retrieval, AI engineering, backend development, and data-driven applications.",
+      "Portfolio of Dinh Nhat Luan, an AI Engineer & Fullstack Web developer working on computer vision, face recognition, information retrieval and business automation.",
     images: ["/og.png"],
   },
   robots: {
@@ -61,8 +70,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth h-full antialiased">
-      <body className="min-h-full flex flex-col bg-[#37353E] text-[#D3DAD9] font-sans selection:bg-[#715A5A] selection:text-white">
+    <html lang="en" className={`${inter.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col bg-paper font-sans text-ink">
         {children}
         <SpeedInsights />
       </body>

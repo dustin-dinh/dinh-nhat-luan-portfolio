@@ -1,57 +1,52 @@
 "use client";
 
+import { ArrowUpRight } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import { Mail, Send } from "lucide-react";
-import { GithubIcon, FacebookIcon, ZaloIcon } from "@/components/BrandIcons";
+import SectionHeading from "./SectionHeading";
 
 export default function Contact() {
   const { t } = useLanguage();
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(personalInfo.email)}&su=${encodeURIComponent(t.contact.emailSubject)}`;
+  const mailto = `mailto:${personalInfo.email}?subject=${encodeURIComponent(t.contact.emailSubject)}`;
   const links = [
-    { label: "Email", text: t.contact.sendEmail, href: gmailComposeUrl, icon: Mail },
-    { label: "GitHub", text: t.contact.viewGithub, href: personalInfo.github, icon: GithubIcon },
-    { label: "Facebook", text: t.contact.visitFacebook, href: personalInfo.facebook, icon: FacebookIcon },
-    { label: "Zalo", text: t.contact.chatZalo, href: personalInfo.zaloUrl, icon: ZaloIcon },
+    { label: "Email", text: personalInfo.email, href: mailto },
+    { label: "GitHub", text: t.contact.viewGithub, href: personalInfo.github },
+    { label: "Facebook", text: t.contact.visitFacebook, href: personalInfo.facebook },
+    { label: "Zalo", text: t.contact.chatZalo, href: personalInfo.zaloUrl },
   ];
 
   return (
-    <section id="contact" className="bg-[#D3DAD9] py-20 text-[#37353E]">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 space-y-3">
-          <div className="inline-flex items-center gap-2 rounded-md border border-[#715A5A]/25 bg-[#715A5A]/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-[#715A5A]">
-            <Send className="h-3.5 w-3.5" />
-            {t.contact.sectionTag}
-          </div>
-          <h2 className="text-3xl font-bold tracking-tight text-[#37353E] sm:text-4xl">
-            {t.contact.title}
-          </h2>
-          <p className="max-w-2xl text-base text-[#44444E]">{t.contact.description}</p>
-        </div>
+    <section id="contact" className="section-y bg-ink text-paper">
+      <div className="container-x">
+        <SectionHeading index="04" tag={t.contact.sectionTag} title={t.contact.title} subtitle={t.contact.description} />
 
-        <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-          {links.map(({ label, text, href, icon: Icon }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="portfolio-card group flex flex-col justify-between gap-5 rounded-2xl border border-[#37353E]/15 bg-white/35 p-5 transition-all hover:border-[#715A5A] hover:bg-white/55"
-            >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#715A5A] text-white transition-transform group-hover:scale-105">
-                <Icon className="h-5 w-5" />
-              </div>
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#715A5A]">{label}</h3>
-                <p className="mt-1 text-xs font-bold text-[#37353E]">{text}</p>
-              </div>
-            </a>
+        <ul className="border-t border-paper/30">
+          {links.map(({ label, text, href }) => (
+            <li key={label} className="border-b border-paper/30">
+              <a
+                href={href}
+                {...(href.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+                className="group flex items-center justify-between gap-6 py-6 md:py-8"
+              >
+                <span className="min-w-0">
+                  <span className="label block opacity-70">{label}</span>
+                  <span
+                    className={`mt-3 block break-all font-black leading-none tracking-[-0.045em] transition-colors duration-200 group-hover:text-accent ${
+                      // the address is one long unbreakable word, so it gets a smaller size on phones
+                      label === "Email" ? "text-lg sm:text-[clamp(1.5rem,3.5vw,3rem)]" : "text-[clamp(1.5rem,3.5vw,3rem)]"
+                    }`}
+                  >
+                    {text}
+                  </span>
+                </span>
+                <ArrowUpRight
+                  className="h-7 w-7 shrink-0 transition-[color,transform] duration-200 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-accent md:h-10 md:w-10"
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
           ))}
-        </div>
-
-        <div className="mt-10 rounded-xl border border-[#37353E]/15 bg-white/30 p-4 text-center">
-          <p className="text-xs font-medium text-[#44444E]">&ldquo;{t.contact.closingMsg}&rdquo;</p>
-        </div>
+        </ul>
       </div>
     </section>
   );

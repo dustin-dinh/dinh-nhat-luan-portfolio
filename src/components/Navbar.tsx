@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu, X, Code2 } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import LanguageSwitcher from "./LanguageSwitcher";
 
@@ -13,72 +13,64 @@ export default function Navbar() {
     { label: t.navigation.projects, href: "#projects" },
     { label: t.navigation.skills, href: "#skills" },
     { label: t.navigation.education, href: "#education" },
-    { label: t.navigation.about, href: "#about" },
-    { label: t.navigation.photography, href: "#photography" },
     { label: t.navigation.contact, href: "#contact" },
+    { label: t.navigation.photography, href: "#photography" },
   ];
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#D3DAD9]/10 bg-[#37353E]/85 py-3 shadow-xs backdrop-blur-xl">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand logo */}
-        <a
-          href="#hero"
-          className="group flex items-center gap-2.5 text-lg font-bold tracking-tight text-white transition-colors hover:text-[#A98A8A]"
-        >
-          <div className="rounded-lg border border-[#A98A8A]/35 bg-[#715A5A]/25 p-1.5 text-[#A98A8A] transition-colors group-hover:bg-[#715A5A]/40">
-            <Code2 className="w-5 h-5" />
-          </div>
-          <span className="font-semibold">
-            {t.navigation.brand}<span className="text-[#A98A8A]">.</span>
-          </span>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-ink bg-paper">
+      <div className="container-x flex h-16 items-center justify-between gap-6">
+        <a href="#hero" className="text-base font-black tracking-tight">
+          {t.navigation.brand}
+          <span className="text-accent">.</span>
         </a>
 
-        {/* Desktop navigation */}
-        <nav className="hidden items-center gap-1 rounded-full border border-[#D3DAD9]/10 bg-[#44444E]/90 p-1 backdrop-blur-md lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
           {navItems.map((item) => (
             <a
-              key={item.label}
+              key={item.href}
               href={item.href}
-              className="rounded-full px-3.5 py-1.5 text-xs font-medium text-[#D3DAD9] transition-all hover:bg-[#715A5A]/35 hover:text-white"
+              className="py-2 text-xs font-bold uppercase tracking-[0.15em] decoration-accent decoration-2 underline-offset-8 hover:underline"
             >
               {item.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-3">
-          <LanguageSwitcher />
+        <div className="flex items-center gap-2">
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="inline-flex h-11 w-11 cursor-pointer items-center justify-center lg:hidden"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="rounded-lg border border-[#D3DAD9]/15 p-2 text-[#D3DAD9] transition-colors hover:bg-[#44444E] hover:text-white lg:hidden"
-          aria-label="Toggle navigation menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
       </div>
 
-      {/* Mobile menu dropdown */}
       {mobileMenuOpen && (
-        <div className="mobile-menu-enter border-b border-[#D3DAD9]/10 bg-[#37353E] px-4 pb-6 pt-3 shadow-lg lg:hidden">
-          <div className="flex flex-col space-y-1">
+        <div
+          id="mobile-menu"
+          className="fade-in fixed inset-x-0 bottom-0 top-16 flex flex-col justify-between overflow-y-auto bg-paper px-4 pb-10 pt-8 sm:px-8 lg:hidden"
+        >
+          <nav aria-label="Mobile" className="flex flex-col">
             {navItems.map((item) => (
               <a
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="rounded-lg px-4 py-2.5 text-base font-medium text-[#D3DAD9] transition-colors hover:bg-[#44444E] hover:text-[#A98A8A]"
+                className="border-b border-ink py-3 text-3xl font-black tracking-[-0.04em] sm:text-4xl"
               >
                 {item.label}
               </a>
             ))}
-          </div>
-
-          <div className="flex items-center justify-end border-t border-[#D3DAD9]/10 pt-4 mt-2">
+          </nav>
+          <div className="pt-8 md:hidden">
             <LanguageSwitcher />
           </div>
         </div>

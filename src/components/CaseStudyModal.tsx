@@ -2,10 +2,9 @@
 
 import { useEffect } from "react";
 import { createPortal } from "react-dom";
-import { X, AlertTriangle, Layers, Cpu, Database, Target, Award, Lightbulb, ExternalLink } from "lucide-react";
+import { X, ArrowUpRight } from "lucide-react";
 import { ProjectContent } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import { GithubIcon } from "@/components/BrandIcons";
 
 interface CaseStudyModalProps {
   project: ProjectContent | null;
@@ -34,188 +33,111 @@ export default function CaseStudyModal({ project, onClose }: CaseStudyModalProps
 
   const cs = project.caseStudy;
   const labels = t.projects.caseStudy;
+  const groups: { title: string; items: { label?: string; text: string; mono?: boolean }[] }[] = [
+    { title: labels.problemGoal, items: [{ label: labels.problem, text: cs.problem }, { label: labels.goal, text: cs.goal }] },
+    { title: labels.roleUsers, items: [{ label: labels.role, text: cs.role }, { label: labels.users, text: cs.users }] },
+    {
+      title: labels.solutionArchitecture,
+      items: [
+        { label: labels.solution, text: cs.solution },
+        { label: labels.architecture, text: cs.architecture, mono: true },
+      ],
+    },
+    { title: labels.dataProcessing, items: [{ text: cs.dataProcess }] },
+    { title: labels.challenges, items: [{ label: labels.constraint, text: cs.challenges }, { label: labels.decision, text: cs.decisions }] },
+    { title: labels.results, items: [{ label: labels.evaluation, text: cs.evaluation }, { label: labels.outcome, text: cs.results }] },
+    { title: labels.lessons, items: [{ label: labels.lessonsLearned, text: cs.lessonsLearned }, { label: labels.nextSteps, text: cs.nextSteps }] },
+  ];
 
   return createPortal(
     <div
-      className="case-study-backdrop fixed inset-0 z-[60] flex items-center justify-center overflow-hidden bg-black/75 p-4 sm:p-6 backdrop-blur-md"
+      className="fade-in fixed inset-0 z-60 flex items-stretch justify-center bg-ink/70 sm:p-6"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="case-study-title"
     >
       <div
-        className="case-study-panel relative w-full max-w-5xl max-h-[calc(100dvh-2rem)] overflow-y-auto rounded-3xl border border-[#D3DAD9]/20 bg-[#37353E] text-[#D3DAD9] shadow-2xl"
+        className="case-study-panel relative w-full max-w-6xl overflow-y-auto bg-paper text-ink sm:border-2 sm:border-ink"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[#D3DAD9]/10 bg-[#37353E]/95 px-6 py-5 backdrop-blur-md sm:px-8">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-6 border-b-2 border-ink bg-paper px-5 py-6 sm:px-10">
           <div>
-            <span className="font-mono text-xs font-bold tracking-widest text-[#A98A8A]">
+            <p className="label text-muted">
               /{project.id} · {labels.label}
-            </span>
-            <h2 id="case-study-title" className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            </p>
+            <h2 id="case-study-title" className="mt-3 text-3xl font-black leading-none tracking-[-0.045em] sm:text-5xl">
               {project.name}
+              <span className="text-accent">.</span>
             </h2>
           </div>
-          <button
-            onClick={onClose}
-            className="rounded-xl border border-[#D3DAD9]/15 bg-[#44444E] p-2 text-[#D3DAD9] transition-colors hover:bg-[#715A5A] hover:text-white"
-            aria-label={t.projects.closeCaseStudy}
-          >
+          <button autoFocus onClick={onClose} className="icon-btn" aria-label={t.projects.closeCaseStudy}>
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="p-6 space-y-8 sm:p-8">
-          <div className="grid grid-cols-1 gap-4 rounded-2xl border border-[#A98A8A]/30 bg-[#44444E]/80 p-5 sm:grid-cols-3">
+        <div className="space-y-14 px-5 py-12 sm:px-10">
+          <dl className="grid gap-6 sm:grid-cols-3">
             {project.metrics.map((m) => (
-              <div key={m.label} className="space-y-1">
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#AEB4B3]">
-                  {m.label}
-                </span>
-                <p className="text-xl font-black text-white">{m.value}</p>
+              <div key={m.label} className="border-t-2 border-ink pt-3">
+                <dt className="label text-muted">{m.label}</dt>
+                <dd className="mt-2 text-3xl font-black tracking-tight">{m.value}</dd>
               </div>
             ))}
-          </div>
+          </dl>
 
-          {/* Quick Links */}
-          <div className="flex flex-wrap gap-3">
-            {project.liveUrl && (
-              <a
-                href={project.liveUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
-              >
-                <span>{t.projects.viewDemo}</span>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
+          {(project.liveUrl || project.githubUrl) && (
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              {project.liveUrl && (
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-solid">
+                  {t.projects.viewDemo}
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
+              {project.githubUrl && (
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="link-arrow">
+                  {t.projects.viewGithub}
+                  <ArrowUpRight className="h-4 w-4" />
+                </a>
+              )}
+            </div>
+          )}
+
+          <div className="border-t-2 border-ink">
+            {project.features && (
+              <section className="grid gap-6 border-b border-ink py-10 lg:grid-cols-12">
+                <h3 className="text-2xl font-black tracking-tight lg:col-span-4">{t.projects.featuresLabel}</h3>
+                <ul className="grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:col-span-8">
+                  {project.features.map((feature) => (
+                    <li key={feature} className="flex gap-3 text-lg leading-relaxed">
+                      <span className="mt-2.5 h-1.5 w-1.5 shrink-0 bg-accent" aria-hidden="true" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
-            <a
-              href={project.githubUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-[#D3DAD9]/20 bg-[#44444E] px-4 py-2.5 text-xs font-bold text-white transition-colors hover:border-[#A98A8A]"
-            >
-              <GithubIcon className="h-4 w-4" />
-              <span>{t.projects.viewGithub}</span>
-            </a>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <Target className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">{labels.problemGoal}</h3>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.problem}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.problem}</p>
-              </div>
-              <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.goal}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.goal}</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <Layers className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">{labels.roleUsers}</h3>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.role}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.role}</p>
-              </div>
-              <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.users}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.users}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-            <div className="flex items-center gap-2 text-[#A98A8A]">
-              <Cpu className="h-5 w-5" />
-              <h3 className="text-base font-bold text-white">{labels.solutionArchitecture}</h3>
-            </div>
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.solution}</h4>
-              <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.solution}</p>
-            </div>
-            <div className="pt-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.architecture}</h4>
-              <p className="mt-1 font-mono text-xs leading-relaxed text-[#E5D5D5] bg-[#37353E] p-3 rounded-xl border border-[#D3DAD9]/10">
-                {cs.architecture}
-              </p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <Database className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">{labels.dataProcessing}</h3>
-              </div>
-              <p className="text-sm leading-relaxed text-[#D3DAD9]">{cs.dataProcess}</p>
-            </div>
-
-            <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <AlertTriangle className="h-5 w-5 text-amber-400" />
-                <h3 className="text-base font-bold text-white">{labels.challenges}</h3>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-amber-400">{labels.constraint}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.challenges}</p>
-              </div>
-              <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.decision}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.decisions}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <div className="space-y-4 rounded-2xl border border-[#A98A8A]/30 bg-[#715A5A]/20 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <Award className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">{labels.results}</h3>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.evaluation}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.evaluation}</p>
-              </div>
-              <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.outcome}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#E5D5D5] font-semibold">{cs.results}</p>
-              </div>
-            </div>
-
-            <div className="space-y-4 rounded-2xl border border-[#D3DAD9]/10 bg-[#44444E]/50 p-6">
-              <div className="flex items-center gap-2 text-[#A98A8A]">
-                <Lightbulb className="h-5 w-5" />
-                <h3 className="text-base font-bold text-white">{labels.lessons}</h3>
-              </div>
-              <div>
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.lessonsLearned}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.lessonsLearned}</p>
-              </div>
-              <div className="pt-2">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#AEB4B3]">{labels.nextSteps}</h4>
-                <p className="mt-1 text-sm leading-relaxed text-[#D3DAD9]">{cs.nextSteps}</p>
-              </div>
-            </div>
+            {groups.map((group) => (
+              <section key={group.title} className="grid gap-6 border-b border-ink py-10 lg:grid-cols-12">
+                <h3 className="text-2xl font-black tracking-tight lg:col-span-4">{group.title}</h3>
+                <div className="space-y-8 lg:col-span-8">
+                  {group.items.map((item) => (
+                    <div key={item.label ?? group.title}>
+                      {item.label && <h4 className="label text-muted">{item.label}</h4>}
+                      <p className={item.mono ? "mt-3 bg-ink p-4 font-mono text-sm leading-relaxed text-paper" : "mt-2 text-lg leading-relaxed"}>
+                        {item.text}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            ))}
           </div>
         </div>
 
-        {/* Footer */}
-        <div className="flex justify-end border-t border-[#D3DAD9]/10 bg-[#37353E]/95 px-6 py-4 backdrop-blur-md sm:px-8">
-          <button
-            onClick={onClose}
-            className="inline-flex items-center gap-2 rounded-xl bg-[#715A5A] px-6 py-2.5 text-xs font-bold text-white transition-colors hover:bg-[#806767]"
-          >
-            <span>{t.projects.closeCaseStudy}</span>
+        <div className="flex justify-end border-t-2 border-ink px-5 py-6 sm:px-10">
+          <button onClick={onClose} className="btn-solid">
+            {t.projects.closeCaseStudy}
           </button>
         </div>
       </div>

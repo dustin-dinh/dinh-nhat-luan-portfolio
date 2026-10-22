@@ -1,53 +1,43 @@
 "use client";
 
+import { ArrowUp } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
 import { useLanguage } from "@/context/LanguageContext";
-import { ArrowUp, Heart } from "lucide-react";
-import { GithubIcon, FacebookIcon, ZaloIcon } from "@/components/BrandIcons";
 
 export default function Footer() {
   const { t } = useLanguage();
 
   return (
-    <footer className="border-t border-[#D3DAD9]/10 bg-[#37353E] py-10">
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-4 text-xs font-medium text-[#AEB4B3] sm:flex-row sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center gap-2 text-center sm:flex-row sm:text-left">
-          <div className="flex items-center gap-1.5">
-            <span>© {new Date().getFullYear()} {t.navigation.brand}.</span>
-            <Heart className="h-3.5 w-3.5 fill-[#A98A8A] text-[#A98A8A]" />
-            <span>{t.footer.builtWith}</span>
-          </div>
-          <span className="hidden text-[#D3DAD9]/20 sm:inline">•</span>
-          <span>{t.lastUpdated}</span>
+    <footer className="border-t border-paper/30 bg-ink py-10 text-paper">
+      <div className="container-x flex flex-col gap-8 text-sm lg:flex-row lg:items-center lg:justify-between">
+        <div className="space-y-1 opacity-75">
+          <p>
+            © {new Date().getFullYear()} {t.navigation.brand}. {t.footer.builtWith}
+          </p>
+          <p>{t.lastUpdated}</p>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex flex-wrap items-center gap-x-8 gap-y-2">
           {[
-            { label: "GitHub", href: personalInfo.github, icon: GithubIcon },
-            { label: "Facebook", href: personalInfo.facebook, icon: FacebookIcon },
-            { label: "Zalo", href: personalInfo.zaloUrl, icon: ZaloIcon },
-          ].map(({ label, href, icon: Icon }) => (
+            { label: "GitHub", href: personalInfo.github },
+            { label: "Facebook", href: personalInfo.facebook },
+            { label: "Zalo", href: personalInfo.zaloUrl },
+          ].map(({ label, href }) => (
             <a
               key={label}
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-md border border-[#D3DAD9]/12 bg-[#44444E] p-1.5 text-[#D3DAD9] transition-colors hover:border-[#A98A8A] hover:text-[#A98A8A]"
-              aria-label={label}
+              className="inline-flex min-h-11 items-center font-bold uppercase tracking-widest decoration-accent decoration-2 underline-offset-8 hover:underline"
             >
-              <Icon className="h-4 w-4" />
+              {label}
             </a>
           ))}
+          <a href="#hero" className="inline-flex min-h-11 items-center gap-2 font-bold uppercase tracking-widest hover:text-accent">
+            {t.footer.backToTop}
+            <ArrowUp className="h-4 w-4" />
+          </a>
         </div>
-
-        <a
-          href="#hero"
-          className="inline-flex items-center gap-1.5 rounded-lg border border-[#D3DAD9]/12 bg-[#44444E] px-3 py-1.5 text-[#D3DAD9] transition-colors hover:border-[#A98A8A] hover:text-[#A98A8A]"
-          aria-label="Back to top"
-        >
-          <span>{t.footer.backToTop}</span>
-          <ArrowUp className="h-3.5 w-3.5" />
-        </a>
       </div>
     </footer>
   );
